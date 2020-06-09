@@ -32,6 +32,8 @@ namespace ClassGenerator
         {
             var code = new SerializationCodePair();
 
+            type = type.Replace(" ", "");
+
             switch (type)
             {
                 case "long":
@@ -94,6 +96,17 @@ namespace ClassGenerator
                         code.deserialization = $"for (var {loopVarName} = 0; {loopVarName} < {arraySize}; ++{loopVarName}) " + elementSerialization.deserialization;
                         code.serialization = $"for (var {loopVarName} = 0; {loopVarName} < {arraySize}; ++{loopVarName}) " + elementSerialization.serialization;
                     }
+                    // Type cast
+                    else if (type.Contains(":"))
+                    {
+                        var words = type.Split(':');
+                        if (words.Length != 2)
+                            throw new Exception($"Not an invalid data cast");
+                        var originalType = words[0];
+                        var serializeType = words[1];
+                        code.serialization = GenerateSerializationCode($"({serializeType}){fieldName}", serializeType).serialization;
+                        code.deserialization = GenerateSerializationCode(fieldName, serializeType).deserialization.Replace($"{fieldName} = ", $"{fieldName} = ({originalType})");
+                    }
                     else
                     {
                         code.deserialization = $"{fieldName}.OnDeserialize(reader);";
@@ -119,7 +132,9 @@ namespace ClassGenerator
                 var typeName = "";
                 var fieldName = field.name;
 
-                switch (field.type)
+                var type = field.type.Replace(" ", "");
+
+                switch (type)
                 {
                     case "long":
                     case "int":
@@ -132,16 +147,16 @@ namespace ClassGenerator
                     case "float":
                     case "string":
                     case "bool":
-                        defaultValue = $"default({field.type})";
-                        typeName = field.type;
+                        defaultValue = $"default({type})";
+                        typeName = type;
                         break;
                     default:
                         // Array
-                        if (field.type.Contains("["))
+                        if (type.Contains("["))
                         {
-                            var words = field.type.Split('[', ']');
+                            var words = type.Split('[', ']');
                             if (words.Length % 2 == 0)
-                                throw new Exception($"Not an invalid array type: {field.type}");
+                                throw new Exception($"Not an invalid array type: {type}");
                             if (!int.TryParse(words[1], out var arraySize))
                                 throw new Exception($"Not an invalid array size: {words[1]}");
 
@@ -149,9 +164,16 @@ namespace ClassGenerator
                             typeName = elementType + "[]";
                             defaultValue = $"new {elementType}[{arraySize}]";
                         }
+                        // Type cast
+                        else if (type.Contains(":"))
+                        {
+                            var words = type.Split(':');
+                            if (words.Length != 2)
+                                throw new Exception($"Not an invalid data cast");
+                        }
                         else
                         {
-                            typeName = field.type;
+                            typeName = type;
                             defaultValue = $"new {typeName}()";
                         }
                         break;

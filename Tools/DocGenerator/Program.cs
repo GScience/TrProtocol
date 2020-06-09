@@ -10,11 +10,24 @@ namespace DocGenerator
 {
     class Program
     {
+        public const string enumTemplate =
+@"| {1} | {2} |";
+
+        public const string enumHeadTemplate =
+@"#### {0}
+
+| value | description |
+| ----- | ----- |
+{1}
+";
+
         public const string argTemplate =
 @"| {0} | {1} | {2} |";
 
         public const string messageTemplate =
-@"### Message {0}
+@"#### {0}
+
+{3}
 
 | arg | type | description |
 | ----- | ----- | ----- |
@@ -23,7 +36,7 @@ namespace DocGenerator
 {2}";
 
         public const string typeTemplate =
-@"### Type {0}
+@"#### {0}
 
 | field | type | description |
 | ----- | ----- | ----- |
@@ -52,33 +65,48 @@ namespace DocGenerator
 
             var msgCodeGenerator = new CodeGenerator(argTemplate, messageTemplate);
             var typeCodeGenerator = new CodeGenerator(argTemplate, typeTemplate);
+            var enumCodeGenerator = new CodeGenerator(enumTemplate, enumHeadTemplate);
             var docCode = "## Terraria protocol\n";
 
-            foreach (var type in loader.types)
+            var typeList = loader.types.ToList();
+            typeList.Sort((pair1, pair2) => string.Compare(pair1.Key, pair2.Key));
+
+            var beginEnum = false;
+            var beginType = false;
+
+            foreach (var type in typeList)
             {
                 var words = type.Key.Split('_');
-                bool isMessage;
+
                 if (words.Length != 2)
                     continue;
                 var name = "";
                 if (words[0] == "type")
                 {
                     name = words[1];
-                    isMessage = false;
+                    if (!beginType)
+                        docCode += "### Inner type definations\n";
+                    beginType = true;
+                }
+                else if (words[0] == "enum")
+                {
+                    name = words[1];
+                    if (!beginEnum)
+                        docCode += "### Inner enum definations\n";
+                    beginEnum = true;
                 }
                 else if (int.TryParse(words[0], out var messageId))
-                {
                     name = type.Key;
-                    isMessage = true;
-                }
                 else
                     continue;
 
-                if (isMessage)
-                    docCode += msgCodeGenerator.Generate($"[{words[0]}]{words[1]}", type.Value);
-                else
+                if (beginType)
                     docCode += typeCodeGenerator.Generate(name, type.Value);
-
+                else if (beginEnum)
+                    docCode += enumCodeGenerator.Generate(words[1], type.Value);
+                else
+                    docCode += msgCodeGenerator.Generate($"[{words[0]}]{words[1]}", type.Value);
+                
                 docCode += "\n";
             }
 

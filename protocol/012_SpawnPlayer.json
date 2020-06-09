@@ -1,0 +1,32 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "Remote player ID",
+      "type": "byte"
+    },
+    {
+      "name": "spawnX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "spawnY",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "respawnTimeRemain",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "playerSpawnContext",
+      "desc": "",
+      "type": "PlayerSpawnContext:byte"
+    }
+  ]
+}

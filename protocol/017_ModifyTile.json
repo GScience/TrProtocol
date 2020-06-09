@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "action",
+      "desc": "",
+      "type": "ModifyTileAction:byte"
+    },
+    {
+      "name": "hp",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "maxHp",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

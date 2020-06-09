@@ -1,0 +1,77 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "Remote player ID",
+      "type": "byte"
+    },
+    {
+      "name": "control",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "pulley",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "misc",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "sleepingInfo",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "selectedItem",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "positionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "positionY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "originalPositionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "originalPositionY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "homePositionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "homePositionY",
+      "desc": "",
+      "type": "float"
+    }
+  ]
+}

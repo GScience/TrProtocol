@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "startX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "startY",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "endX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "endY",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

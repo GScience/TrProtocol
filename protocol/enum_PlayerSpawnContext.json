@@ -1,0 +1,14 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "ReviveFromDeath"
+    },
+    {
+      "type": "SpawningIntoWorld"
+    },
+    {
+      "type": "RecallFromItem"
+    }
+  ]
+}

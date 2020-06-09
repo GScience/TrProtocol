@@ -4,8 +4,8 @@
   "s2c": true,
   "args": [
     {
-      "name": "remoteClient",
-      "desc": "Remote client ID",
+      "name": "playerId",
+      "desc": "Remote player ID",
       "type": "byte"
     },
     {

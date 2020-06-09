@@ -31,12 +31,23 @@ $@"```csharp
             var argsCode = "";
             foreach (var arg in typeInfo.args)
             {
-                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#Type-{arg.type})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
+                var anchorName = arg.type.Split('[')[0].Split(':')[0];
+                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#{anchorName})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
 
                 if (!string.IsNullOrEmpty(argsCode))
                     argsCode += "\n";
                 argsCode += argCode;
             }
+
+            string side;
+            if (typeInfo.c2s && typeInfo.s2c)
+                side = "##### Server <-> Client";
+            else if (typeInfo.c2s)
+                side = "##### Server <-  Client";
+            else if (typeInfo.s2c)
+                side = "##### Server  -> Client";
+            else
+                side = "##### Server  *  Client";
 
             if (!string.IsNullOrEmpty(typeInfo.serialization) && !string.IsNullOrEmpty(typeInfo.deserialization))
             {
@@ -47,9 +58,10 @@ $@"```csharp
                         _headTemplate,
                         name,
                         argsCode,
-                        "Serialization: \n" + GenerateCodeBox(serializationCode) + "Deserialization: \n" + GenerateCodeBox(deserializationCode) + "\n");
+                        "Serialization: \n" + GenerateCodeBox(serializationCode) + "Deserialization: \n" + GenerateCodeBox(deserializationCode) + "\n", 
+                        side);
             }
-            return string.Format(_headTemplate, name, argsCode, "Using default serialization method");
+            return string.Format(_headTemplate, name, argsCode, "Using default serialization method", side);
         }
     }
 }

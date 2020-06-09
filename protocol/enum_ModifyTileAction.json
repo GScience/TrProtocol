@@ -1,0 +1,77 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "KillTile"
+    },
+    {
+      "type": "PlaceTile"
+    },
+    {
+      "type": "KillWall"
+    },
+    {
+      "type": "PlaceWall"
+    },
+    {
+      "type": "KillTileNoItem"
+    },
+    {
+      "type": "PlaceWire"
+    },
+    {
+      "type": "KillWire"
+    },
+    {
+      "type": "PoundTile"
+    },
+    {
+      "type": "PlaceActuator"
+    },
+    {
+      "type": "KillActuator"
+    },
+    {
+      "type": "PlaceWire2"
+    },
+    {
+      "type": "KillWire2"
+    },
+    {
+      "type": "PlaceWire3"
+    },
+    {
+      "type": "KillWire3"
+    },
+    {
+      "type": "SlopeTile"
+    },
+    {
+      "type": "FrameTrack"
+    },
+    {
+      "type": "PlaceWire4"
+    },
+    {
+      "type": "KillWire4"
+    },
+    {
+      "type": "PokeLogicGate"
+    },
+    {
+      "type": "Actuate"
+    },
+    {
+      "type": "KillTile"
+    },
+    {
+      "type": "ReplaceTile"
+    },
+    {
+      "type": "ReplaceWall"
+    },
+    {
+      "type": "SlopePoundTile"
+    }
+  ]
+}
