@@ -512,7 +512,7 @@ Using default serialization method
 | arg | type | description |
 | ----- | ----- | ----- |
 | projectileId | [short](#short) | - |
-| owner | [short](#short) | Player ID |
+| owner | [byte](#byte) | Player ID |
 
 Using default serialization method
 #### [030]TogglePVP
@@ -1368,4 +1368,4 @@ throw new NotImplementedException();
 
 
 ----
-Generate at 2020/6/10 1:16:33
+Generate at 2020/6/10 1:49:10

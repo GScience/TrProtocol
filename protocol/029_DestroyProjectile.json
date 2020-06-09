@@ -11,7 +11,7 @@
     {
       "name": "owner",
       "desc": "Player ID",
-      "type": "short"
+      "type": "byte"
     }
   ]
 }

@@ -18,5 +18,7 @@
       "desc": "",
       "type": "int"
     }
-  ]
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
 }

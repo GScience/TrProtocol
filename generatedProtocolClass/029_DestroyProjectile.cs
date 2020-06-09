@@ -16,7 +16,7 @@ namespace TrProtocol
         /// <summary>
         /// Player ID
         /// </summary>
-        public short owner = default(short);
+        public byte owner = default(byte);
 
         public void OnSerialize(BinaryWriter writer)
         {
@@ -27,9 +27,9 @@ namespace TrProtocol
         public void OnDeserialize(BinaryReader reader)
         {
             projectileId = reader.ReadInt16();
-            owner = reader.ReadInt16();
+            owner = reader.ReadByte();
         }
     }
 }
 
-//Json file changed at 2020/6/9 22:37:58
+//Json file changed at 2020/6/10 1:48:44
