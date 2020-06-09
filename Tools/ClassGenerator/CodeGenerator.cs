@@ -59,7 +59,7 @@ namespace ClassGenerator
                             var words = field.type.Split('[', ']');
                             if (words.Length != 3)
                                 throw new Exception($"Not an invalid array type: {field.type}");
-                            if (int.TryParse(words[1], out var arraySize))
+                            if (!int.TryParse(words[1], out var arraySize))
                                 throw new Exception($"Not an invalid array size: {words[1]}");
 
                             typeName = words[0];
