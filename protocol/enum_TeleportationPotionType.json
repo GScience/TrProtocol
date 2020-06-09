@@ -1,0 +1,14 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "TeleportationPotion"
+    },
+    {
+      "type": "MagicConch"
+    },
+    {
+      "type": "DemonConch"
+    }
+  ]
+}

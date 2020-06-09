@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class SetUserSlot : INetObject
+    public class Msg3SetUserSlot : INetObject
     {
+        public const int ID = 3;
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -25,4 +26,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 19:46:21

@@ -1,0 +1,44 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "GoblinInvasion = -1"
+    },
+    {
+      "type": "FrostInvasion = -2"
+    },
+    {
+      "type": "PirateInvasion = -3"
+    },
+    {
+      "type": "PumpkinMoon = -4"
+    },
+    {
+      "type": "SnowMoon = -5"
+    },
+    {
+      "type": "Eclipse = -6"
+    },
+    {
+      "type": "MartianMoon = -7"
+    },
+    {
+      "type": "ImpendingDoom = -8"
+    },
+    {
+      "type": "BloodMoon = -10"
+    },
+    {
+      "type": "CombatBookUsed = -11"
+    },
+    {
+      "type": "BoughtCat = -12"
+    },
+    {
+      "type": "BoughtDog = -13"
+    },
+    {
+      "type": "BoughtBunny = -14"
+    }
+  ]
+}

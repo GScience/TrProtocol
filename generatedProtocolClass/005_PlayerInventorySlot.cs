@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class PlayerInventorySlot : INetObject
+    public class Msg5PlayerInventorySlot : INetObject
     {
+        public const int ID = 5;
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -15,7 +16,7 @@ namespace TrProtocol
         /// <summary>
         /// Slot ID
         /// </summary>
-        public byte slotId = default(byte);
+        public short slotId = default(short);
         /// <summary>
         /// Stack
         /// </summary>
@@ -41,7 +42,7 @@ namespace TrProtocol
         public void OnDeserialize(BinaryReader reader)
         {
             playerId = reader.ReadByte();
-            slotId = reader.ReadByte();
+            slotId = reader.ReadInt16();
             stack = reader.ReadInt16();
             prefix = reader.ReadByte();
             netId = reader.ReadInt16();
@@ -49,4 +50,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/10 0:52:01

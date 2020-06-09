@@ -6,35 +6,48 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class ModifyTile : INetObject
+    public class Msg17ModifyTile : INetObject
     {
+        public const int ID = 17;
         /// <summary>
         /// 
         /// </summary>
-        public  action = ;
+        public ModifyTileAction action = default(ModifyTileAction);
         /// <summary>
         /// 
         /// </summary>
-        public short hp = default(short);
+        public short tileX = default(short);
         /// <summary>
         /// 
         /// </summary>
-        public short maxHp = default(short);
+        public short tileY = default(short);
+        /// <summary>
+        /// 
+        /// </summary>
+        public short flags1 = default(short);
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte flags2 = default(byte);
 
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write((byte)action);
-            writer.Write(hp);
-            writer.Write(maxHp);
+            writer.Write(tileX);
+            writer.Write(tileY);
+            writer.Write(flags1);
+            writer.Write(flags2);
         }
 
         public void OnDeserialize(BinaryReader reader)
         {
             action = (ModifyTileAction)reader.ReadByte();
-            hp = reader.ReadInt16();
-            maxHp = reader.ReadInt16();
+            tileX = reader.ReadInt16();
+            tileY = reader.ReadInt16();
+            flags1 = reader.ReadInt16();
+            flags2 = reader.ReadByte();
         }
     }
 }
 
-//Generate at 2020/6/9 22:04:51
+//Json file changed at 2020/6/9 22:10:30

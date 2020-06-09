@@ -1,0 +1,17 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "SpawnSkeletron"
+    },
+    {
+      "type": "CauseSoundAtPlayer"
+    },
+    {
+      "type": "StartSundialing"
+    },
+    {
+      "type": "BigMimcSpawnSmoke"
+    }
+  ]
+}

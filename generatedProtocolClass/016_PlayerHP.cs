@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class PlayerHP : INetObject
+    public class Msg16PlayerHP : INetObject
     {
+        public const int ID = 16;
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -37,4 +38,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:51
+//Json file changed at 2020/6/9 21:17:55

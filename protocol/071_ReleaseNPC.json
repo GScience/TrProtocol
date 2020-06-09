@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+    {
+      "name": "x",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "npcType",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "style",
+      "desc": "Sent to NPC AI[2]",
+      "type": "byte"
+    }
+  ]
+}

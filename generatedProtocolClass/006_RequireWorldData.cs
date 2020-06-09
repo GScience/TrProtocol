@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// Require world data
     /// </summary>
-    public class RequireWorldData : INetObject
+    public class Msg6RequireWorldData : INetObject
     {
+        public const int ID = 6;
 
 
         public void OnSerialize(BinaryWriter writer)
@@ -22,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 19:48:03

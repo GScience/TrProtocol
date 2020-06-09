@@ -1,0 +1,37 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "signId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "text",
+      "desc": "",
+      "type": "string"
+    },
+    {
+      "name": "playerId",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "signFlags",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

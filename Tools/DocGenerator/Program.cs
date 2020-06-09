@@ -113,9 +113,9 @@ namespace DocGenerator
             docCode +=
 $@"----
 Generate at {DateTime.Now}";
-            using (var outputFile = File.Open(output, FileMode.Create))
-            using (var writer = new StreamWriter(outputFile))
-                writer.Write(docCode);
+            using (var fs = File.Open(output, FileMode.Create))
+                using (var writer = new StreamWriter(fs))
+                    writer.Write(docCode);
         }
     }
 }

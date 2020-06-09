@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "good",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "evil",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "crimson",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

@@ -4,12 +4,19 @@
     {
       "name": "mode",
       "desc": "",
-      "type": "byte"
+      "type": "NetworkTextMode:byte"
     },
     {
       "name": "text",
       "desc": "",
       "type": "string"
+    },
+    {
+      "name": "substitution",
+      "desc": "",
+      "type": "NetworkText[0]"
     }
-  ]
+  ],
+  "serialization": "writer.Write((byte)mode);\nwriter.Write(text);\nif (mode == NetworkTextMode.Literal)\n    return;\nwriter.Write((byte)substitution.Length);\nfor (int index = 0; index < (substitution.Length & byte.MaxValue); ++index)\n    substitution[index].OnSerialize(writer);",
+  "deserialization": "mode = (NetworkTextMode)reader.ReadByte();\ntext = reader.ReadString();\nif (mode == NetworkTextMode.Literal)\n    return;\nsubstitution = new NetworkText[reader.ReadByte()];\nfor (int index = 0; index < substitution.Length; ++index)\n{\n    substitution[index] = new NetworkText();\n    substitution[index].OnDeserialize(reader);\n}"
 }

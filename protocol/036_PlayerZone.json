@@ -1,0 +1,32 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "zoneFlags1",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "zoneFlags2",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "zoneFlags3",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "zoneFlags4",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

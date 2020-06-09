@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "npcId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "buff",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

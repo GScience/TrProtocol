@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class UNKNOWN : INetObject
+    public class Msg0UNKNOWN : INetObject
     {
+        public const int ID = 0;
 
 
         public void OnSerialize(BinaryWriter writer)
@@ -22,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 19:44:16

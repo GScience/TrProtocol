@@ -1,0 +1,37 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "type",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "style",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "random",
+      "desc": "",
+      "type": "sbyte"
+    },
+    {
+      "name": "direction",
+      "desc": "",
+      "type": "bool"
+    }
+  ]
+}

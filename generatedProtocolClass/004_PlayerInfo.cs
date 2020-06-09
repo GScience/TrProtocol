@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class PlayerInfo : INetObject
+    public class Msg4PlayerInfo : INetObject
     {
+        public const int ID = 4;
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -75,11 +76,7 @@ namespace TrProtocol
         /// <summary>
         /// 
         /// </summary>
-        public BitsByte gameType = new BitsByte();
-        /// <summary>
-        /// 
-        /// </summary>
-        public BitsByte others = new BitsByte();
+        public BitsByte torchFlags = new BitsByte();
 
         public void OnSerialize(BinaryWriter writer)
         {
@@ -99,8 +96,7 @@ namespace TrProtocol
             pantsColor.OnSerialize(writer);
             shoeColor.OnSerialize(writer);
             difficulty.OnSerialize(writer);
-            gameType.OnSerialize(writer);
-            others.OnSerialize(writer);
+            torchFlags.OnSerialize(writer);
         }
 
         public void OnDeserialize(BinaryReader reader)
@@ -121,10 +117,9 @@ namespace TrProtocol
             pantsColor.OnDeserialize(reader);
             shoeColor.OnDeserialize(reader);
             difficulty.OnDeserialize(reader);
-            gameType.OnDeserialize(reader);
-            others.OnDeserialize(reader);
+            torchFlags.OnDeserialize(reader);
         }
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/10 0:56:34

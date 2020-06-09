@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "itemRotation",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "itemAnimation",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

@@ -41,7 +41,7 @@
     {
       "name": "chests",
       "desc": "",
-      "type": ""
+      "type": "Chest"
     },
     {
       "name": "signCount",
@@ -51,7 +51,7 @@
     {
       "name": "signs",
       "desc": "",
-      "type": ""
+      "type": "Sign"
     },
     {
       "name": "tileEntityCount",
@@ -61,7 +61,9 @@
     {
       "name": "tileEntities",
       "desc": "",
-      "type": ""
+      "type": "Entity"
     }
-  ]
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
 }

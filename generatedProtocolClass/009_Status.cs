@@ -6,29 +6,36 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Status : INetObject
+    public class Msg9Status : INetObject
     {
+        public const int ID = 9;
         /// <summary>
         /// Status only increases
         /// </summary>
         public int statusMax = default(int);
         /// <summary>
-        /// Status only increases
+        /// 
         /// </summary>
-        public NetworkText statusMax = new NetworkText();
+        public NetworkText statusText = new NetworkText();
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte statusTextFlags = default(byte);
 
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write(statusMax);
-            statusMax.OnSerialize(writer);
+            statusText.OnSerialize(writer);
+            writer.Write(statusTextFlags);
         }
 
         public void OnDeserialize(BinaryReader reader)
         {
             statusMax = reader.ReadInt32();
-            statusMax.OnDeserialize(reader);
+            statusText.OnDeserialize(reader);
+            statusTextFlags = reader.ReadByte();
         }
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 23:51:19

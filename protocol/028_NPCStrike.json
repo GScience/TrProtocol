@@ -1,0 +1,32 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "npcId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "damage",
+      "desc": "-1 = Kill",
+      "type": "short"
+    },
+    {
+      "name": "knockback",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "hitDirection",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "cirt",
+      "desc": "",
+      "type": "bool"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "quest",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "completed",
+      "desc": "",
+      "type": "bool"
+    }
+  ]
+}

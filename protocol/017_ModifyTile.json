@@ -9,14 +9,24 @@
       "type": "ModifyTileAction:byte"
     },
     {
-      "name": "hp",
+      "name": "tileX",
       "desc": "",
       "type": "short"
     },
     {
-      "name": "maxHp",
+      "name": "tileY",
       "desc": "",
       "type": "short"
-    }
+    },
+    {
+      "name": "flags1",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "flags2",
+      "desc": "",
+      "type": "byte"
+    },
   ]
 }

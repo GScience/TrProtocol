@@ -1,0 +1,39 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "flags",
+      "desc": "",
+      "type": "BitsByte"
+    },
+    {
+      "name": "targetId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "x",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "style",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "extraInfo",
+      "desc": "",
+      "type": "int"
+    }
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
+}

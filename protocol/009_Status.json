@@ -9,9 +9,14 @@
       "type": "int"
     },
     {
-      "name": "statusMax",
-      "desc": "Status only increases",
+      "name": "statusText",
+      "desc": "",
       "type": "NetworkText"
+    },
+    {
+      "name": "statusTextFlags",
+      "desc": "",
+      "type": "byte"
     }
   ]
 }

@@ -108,7 +108,7 @@ namespace TrProtocol
         /// <summary>
         /// 
         /// </summary>
-        KillTile,
+        KillTile2,
 
         /// <summary>
         /// 
@@ -128,4 +128,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:51
+//Json file changed at 2020/6/9 23:58:03

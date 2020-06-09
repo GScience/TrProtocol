@@ -1,0 +1,32 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "action",
+      "desc": "",
+      "type": "PlaceChestAction:byte"
+    },
+    {
+      "name": "tileX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "tileY",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "style",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "chestIdToDestroy",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

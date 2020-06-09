@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "npcId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "homeTileX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "homeTileY",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "homeless",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

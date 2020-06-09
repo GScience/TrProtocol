@@ -1,0 +1,32 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "chestId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "itemSlot",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "stack",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "prefix",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "itemNetId",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

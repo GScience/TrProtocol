@@ -62,7 +62,7 @@
       "type": "Actuate"
     },
     {
-      "type": "KillTile"
+      "type": "KillTile2"
     },
     {
       "type": "ReplaceTile"

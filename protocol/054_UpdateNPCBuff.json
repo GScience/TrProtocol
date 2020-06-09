@@ -1,0 +1,62 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "npcId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "buffId1",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time1",
+      "desc": "",
+      "type": "short"
+    },
+     {
+      "name": "buffId2",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time2",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "buffId3",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time3",
+      "desc": "",
+      "type": "short"
+    },
+     {
+      "name": "buffId4",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time4",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "buffId5",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "time5",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

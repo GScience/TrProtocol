@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class ConnectRequest : INetObject
+    public class Msg1ConnectRequest : INetObject
     {
+        public const int ID = 1;
         /// <summary>
         /// Terraria version
         /// </summary>
@@ -25,4 +26,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 19:45:21

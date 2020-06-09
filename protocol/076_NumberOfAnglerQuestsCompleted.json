@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "anglerQuestsCompleted",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "golferScore",
+      "desc": "",
+      "type": "int"
+    }
+  ]
+}

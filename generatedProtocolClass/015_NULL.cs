@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class NULL : INetObject
+    public class Msg15NULL : INetObject
     {
+        public const int ID = 15;
 
 
         public void OnSerialize(BinaryWriter writer)
@@ -22,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 21:16:31

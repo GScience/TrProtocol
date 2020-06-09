@@ -11,7 +11,7 @@
     {
       "name": "slotId",
       "desc": "Slot ID",
-      "type": "byte"
+      "type": "short"
     },
     {
       "name": "stack",

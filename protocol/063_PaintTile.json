@@ -1,0 +1,22 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "color",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

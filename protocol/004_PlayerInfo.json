@@ -84,12 +84,7 @@
       "type": "BitsByte"
     },
     {
-      "name": "gameType",
-      "desc": "",
-      "type": "BitsByte"
-    },
-    {
-      "name": "others",
+      "name": "torchFlags",
       "desc": "",
       "type": "BitsByte"
     }

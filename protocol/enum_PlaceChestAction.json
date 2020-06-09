@@ -1,0 +1,23 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "PlaceChest"
+    },
+    {
+      "type": "KillChest"
+    },
+    {
+      "type": "PlaceDresser"
+    },
+    {
+      "type": "KillDresser"
+    },
+    {
+      "type": "PlaceContainers2"
+    },
+    {
+      "type": "Killontainers2"
+    }
+  ]
+}

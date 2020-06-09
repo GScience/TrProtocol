@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "progress",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "maxProgress",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "icon",
+      "desc": "",
+      "type": "sbyte"
+    },
+    {
+      "name": "wave",
+      "desc": "",
+      "type": "sbyte"
+    }
+  ]
+}

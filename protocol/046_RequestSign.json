@@ -1,0 +1,17 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

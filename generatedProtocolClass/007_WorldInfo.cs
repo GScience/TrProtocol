@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// World info
     /// </summary>
-    public class WorldInfo : INetObject
+    public class Msg7WorldInfo : INetObject
     {
+        public const int ID = 7;
         /// <summary>
         /// Time
         /// </summary>
@@ -63,7 +64,7 @@ namespace TrProtocol
         /// <summary>
         /// World Generator Version
         /// </summary>
-        public long worldGeneratorVersion = default(long);
+        public ulong worldGeneratorVersion = default(ulong);
         /// <summary>
         /// Moon Type
         /// </summary>
@@ -141,17 +142,13 @@ namespace TrProtocol
         /// </summary>
         public byte numClouds = default(byte);
         /// <summary>
-        /// Clouds amount
-        /// </summary>
-        public byte numClouds = default(byte);
-        /// <summary>
         /// Tree x
         /// </summary>
         public int[] treeX = new int[3];
         /// <summary>
         /// Tree style
         /// </summary>
-        public int[] treeStyle = new int[4];
+        public byte[] treeStyle = new byte[4];
         /// <summary>
         /// Cave back x
         /// </summary>
@@ -159,11 +156,11 @@ namespace TrProtocol
         /// <summary>
         /// Cave back style
         /// </summary>
-        public int[] caveBackStyle = new int[4];
+        public byte[] caveBackStyle = new byte[4];
         /// <summary>
         /// Tree tops variations
         /// </summary>
-        public int[] treeTopsVariations = new int[13];
+        public byte[] treeTopsVariations = new byte[13];
         /// <summary>
         /// Max Raining
         /// </summary>
@@ -231,7 +228,7 @@ namespace TrProtocol
         /// <summary>
         /// Lobby ID
         /// </summary>
-        public long lobbyId = default(long);
+        public ulong lobbyId = default(ulong);
         /// <summary>
         /// Sandstorm Intended Severity
         /// </summary>
@@ -271,7 +268,6 @@ namespace TrProtocol
             writer.Write(jungleBackStyle);
             writer.Write(hellBackStyle);
             writer.Write(windSpeedTarget);
-            writer.Write(numClouds);
             writer.Write(numClouds);
             for (var i = 0; i < 3; ++i) writer.Write(treeX[i]);
             for (var i = 0; i < 4; ++i) writer.Write(treeStyle[i]);
@@ -313,7 +309,7 @@ namespace TrProtocol
             worldName = reader.ReadString();
             gameMode = reader.ReadByte();
             for (var i = 0; i < 16; ++i) uuid[i] = reader.ReadByte();
-            worldGeneratorVersion = reader.ReadInt64();
+            worldGeneratorVersion = reader.ReadUInt64();
             moonType = reader.ReadByte();
             treeBG1 = reader.ReadByte();
             treeBG2 = reader.ReadByte();
@@ -333,12 +329,11 @@ namespace TrProtocol
             hellBackStyle = reader.ReadByte();
             windSpeedTarget = reader.ReadSingle();
             numClouds = reader.ReadByte();
-            numClouds = reader.ReadByte();
             for (var i = 0; i < 3; ++i) treeX[i] = reader.ReadInt32();
-            for (var i = 0; i < 4; ++i) treeStyle[i] = reader.ReadInt32();
+            for (var i = 0; i < 4; ++i) treeStyle[i] = reader.ReadByte();
             for (var i = 0; i < 3; ++i) caveBackX[i] = reader.ReadInt32();
-            for (var i = 0; i < 4; ++i) caveBackStyle[i] = reader.ReadInt32();
-            for (var i = 0; i < 13; ++i) treeTopsVariations[i] = reader.ReadInt32();
+            for (var i = 0; i < 4; ++i) caveBackStyle[i] = reader.ReadByte();
+            for (var i = 0; i < 13; ++i) treeTopsVariations[i] = reader.ReadByte();
             maxRaining = reader.ReadSingle();
             worldState1.OnDeserialize(reader);
             worldState2.OnDeserialize(reader);
@@ -355,10 +350,10 @@ namespace TrProtocol
             savedOreTiersMythril = reader.ReadInt16();
             savedOreTiersAdamantite = reader.ReadInt16();
             invasionType = reader.ReadSByte();
-            lobbyId = reader.ReadInt64();
+            lobbyId = reader.ReadUInt64();
             sandstormIntendedSeverity = reader.ReadSingle();
         }
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/10 1:05:09

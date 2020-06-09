@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+    {
+      "name": "chestId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "chestX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "chestY",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "name",
+      "desc": "",
+      "type": "string"
+    }
+  ]
+}

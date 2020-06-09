@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "liquid",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "liquidType",
+      "desc": "",
+      "type": "byte"
+    }
+  ]
+}

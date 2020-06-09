@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TrForward</RootNamespace>
+    <AssemblyName>TrForward</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\generatedProtocolClass\000_UNKNOWN.cs">
+      <Link>TrProtocol\000_UNKNOWN.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\001_ConnectRequest.cs">
+      <Link>TrProtocol\001_ConnectRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\002_Disconnect.cs">
+      <Link>TrProtocol\002_Disconnect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\003_SetUserSlot.cs">
+      <Link>TrProtocol\003_SetUserSlot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\004_PlayerInfo.cs">
+      <Link>TrProtocol\004_PlayerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\005_PlayerInventorySlot.cs">
+      <Link>TrProtocol\005_PlayerInventorySlot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\006_RequireWorldData.cs">
+      <Link>TrProtocol\006_RequireWorldData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\007_WorldInfo.cs">
+      <Link>TrProtocol\007_WorldInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\008_RequestEssentialTiles.cs">
+      <Link>TrProtocol\008_RequestEssentialTiles.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\009_Status.cs">
+      <Link>TrProtocol\009_Status.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\010_SendSection.cs">
+      <Link>TrProtocol\010_SendSection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\011_SectionTileFrame.cs">
+      <Link>TrProtocol\011_SectionTileFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\012_SpawnPlayer.cs">
+      <Link>TrProtocol\012_SpawnPlayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\013_UpdatePlayer.cs">
+      <Link>TrProtocol\013_UpdatePlayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\014_PlayerActive.cs">
+      <Link>TrProtocol\014_PlayerActive.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\015_NULL.cs">
+      <Link>TrProtocol\015_NULL.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\016_PlayerHP.cs">
+      <Link>TrProtocol\016_PlayerHP.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\017_ModifyTile.cs">
+      <Link>TrProtocol\017_ModifyTile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\018_Time.cs">
+      <Link>TrProtocol\018_Time.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\019_DoorToggle.cs">
+      <Link>TrProtocol\019_DoorToggle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\020_SendTileSquare.cs">
+      <Link>TrProtocol\020_SendTileSquare.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\021_UpdateItemDrop.cs">
+      <Link>TrProtocol\021_UpdateItemDrop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\022_UpdateItemOwner.cs">
+      <Link>TrProtocol\022_UpdateItemOwner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\023_NPCUpdate.cs">
+      <Link>TrProtocol\023_NPCUpdate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\024_StrikeNPCWithHeldItem.cs">
+      <Link>TrProtocol\024_StrikeNPCWithHeldItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\025_NULL.cs">
+      <Link>TrProtocol\025_NULL.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\026_NULL.cs">
+      <Link>TrProtocol\026_NULL.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\027_ProjectileUpdate.cs">
+      <Link>TrProtocol\027_ProjectileUpdate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\028_NPCStrike.cs">
+      <Link>TrProtocol\028_NPCStrike.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\029_DestroyProjectile.cs">
+      <Link>TrProtocol\029_DestroyProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\030_TogglePVP.cs">
+      <Link>TrProtocol\030_TogglePVP.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\031_OpenChest.cs">
+      <Link>TrProtocol\031_OpenChest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\032_UpdateChestItem.cs">
+      <Link>TrProtocol\032_UpdateChestItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\033_SyncActiveChest.cs">
+      <Link>TrProtocol\033_SyncActiveChest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\034_PlaceChest.cs">
+      <Link>TrProtocol\034_PlaceChest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\035_HealEffect.cs">
+      <Link>TrProtocol\035_HealEffect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\036_PlayerZone.cs">
+      <Link>TrProtocol\036_PlayerZone.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\037_RequestPassword.cs">
+      <Link>TrProtocol\037_RequestPassword.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\038_SendPassword.cs">
+      <Link>TrProtocol\038_SendPassword.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\039_RemoveItemOwner.cs">
+      <Link>TrProtocol\039_RemoveItemOwner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\040_SetActiveNPC.cs">
+      <Link>TrProtocol\040_SetActiveNPC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\041_PlayerItemAnimation.cs">
+      <Link>TrProtocol\041_PlayerItemAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\042_PlayerMana.cs">
+      <Link>TrProtocol\042_PlayerMana.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\043_ManaEffect.cs">
+      <Link>TrProtocol\043_ManaEffect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\044_NULL.cs">
+      <Link>TrProtocol\044_NULL.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\045_PlayerTeam.cs">
+      <Link>TrProtocol\045_PlayerTeam.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\046_RequestSign.cs">
+      <Link>TrProtocol\046_RequestSign.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\047_UpdateSign.cs">
+      <Link>TrProtocol\047_UpdateSign.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\048_SetLiquid.cs">
+      <Link>TrProtocol\048_SetLiquid.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\049_CompleteConnectionAndSpawn.cs">
+      <Link>TrProtocol\049_CompleteConnectionAndSpawn.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\050_UpdatePlayerBuff.cs">
+      <Link>TrProtocol\050_UpdatePlayerBuff.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\051_SpecialNPCEffect.cs">
+      <Link>TrProtocol\051_SpecialNPCEffect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\052_Unlock.cs">
+      <Link>TrProtocol\052_Unlock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\053_AddNPCBuff.cs">
+      <Link>TrProtocol\053_AddNPCBuff.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\054_UpdateNPCBuff.cs">
+      <Link>TrProtocol\054_UpdateNPCBuff.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\055_AddPlayerBuff.cs">
+      <Link>TrProtocol\055_AddPlayerBuff.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\056_UpdateNPCName.cs">
+      <Link>TrProtocol\056_UpdateNPCName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\057_UpdateGoodEvil.cs">
+      <Link>TrProtocol\057_UpdateGoodEvil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\058_PlayMusicItem.cs">
+      <Link>TrProtocol\058_PlayMusicItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\059_HitSwitch.cs">
+      <Link>TrProtocol\059_HitSwitch.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\060_NPCHomeUpdate.cs">
+      <Link>TrProtocol\060_NPCHomeUpdate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\061_SpawnBoxxInvasion.cs">
+      <Link>TrProtocol\061_SpawnBoxxInvasion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\062_PlayerDodge.cs">
+      <Link>TrProtocol\062_PlayerDodge.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\063_PaintTile.cs">
+      <Link>TrProtocol\063_PaintTile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\064_PaintWall.cs">
+      <Link>TrProtocol\064_PaintWall.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\065_PlayerNPCTeleport.cs">
+      <Link>TrProtocol\065_PlayerNPCTeleport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\066_HealOtherPlayer.cs">
+      <Link>TrProtocol\066_HealOtherPlayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\067_Placeholder.cs">
+      <Link>TrProtocol\067_Placeholder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\068_ClientUUID.cs">
+      <Link>TrProtocol\068_ClientUUID.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\069_GetChestName.cs">
+      <Link>TrProtocol\069_GetChestName.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\070_CatchNPC.cs">
+      <Link>TrProtocol\070_CatchNPC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\071_ReleaseNPC.cs">
+      <Link>TrProtocol\071_ReleaseNPC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\072_TravellingMerchantInventory.cs">
+      <Link>TrProtocol\072_TravellingMerchantInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\073_TeleportationPotion.cs">
+      <Link>TrProtocol\073_TeleportationPotion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\074_AnglerQuest.cs">
+      <Link>TrProtocol\074_AnglerQuest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\075_CompleteAnglerQuestToday.cs">
+      <Link>TrProtocol\075_CompleteAnglerQuestToday.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\076_NumberOfAnglerQuestsCompleted.cs">
+      <Link>TrProtocol\076_NumberOfAnglerQuestsCompleted.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\077_CreateTemporaryAnimation.cs">
+      <Link>TrProtocol\077_CreateTemporaryAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\078_ReportInvasionProgress.cs">
+      <Link>TrProtocol\078_ReportInvasionProgress.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\079_PlaceObject.cs">
+      <Link>TrProtocol\079_PlaceObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\080_SyncPlayerChestIndex.cs">
+      <Link>TrProtocol\080_SyncPlayerChestIndex.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\090_UpdateItemDrop2.cs">
+      <Link>TrProtocol\090_UpdateItemDrop2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\AI.cs">
+      <Link>TrProtocol\AI.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\BitsByte.cs">
+      <Link>TrProtocol\BitsByte.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Chest.cs">
+      <Link>TrProtocol\Chest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Color.cs">
+      <Link>TrProtocol\Color.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\DoorToggleAction.cs">
+      <Link>TrProtocol\DoorToggleAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Entity.cs">
+      <Link>TrProtocol\Entity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\INetObjectCode.cs">
+      <Link>TrProtocol\INetObjectCode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\ModifyTileAction.cs">
+      <Link>TrProtocol\ModifyTileAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\NetworkText.cs">
+      <Link>TrProtocol\NetworkText.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\PlaceChestAction.cs">
+      <Link>TrProtocol\PlaceChestAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\PlayerSpawnContext.cs">
+      <Link>TrProtocol\PlayerSpawnContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Sign.cs">
+      <Link>TrProtocol\Sign.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\SpawnBossInvasionType.cs">
+      <Link>TrProtocol\SpawnBossInvasionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\SpecialNPCEffectType.cs">
+      <Link>TrProtocol\SpecialNPCEffectType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\TeleportationPotionType.cs">
+      <Link>TrProtocol\TeleportationPotionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Tile.cs">
+      <Link>TrProtocol\Tile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\UnlockType.cs">
+      <Link>TrProtocol\UnlockType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\Variable.cs">
+      <Link>TrProtocol\Variable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\WorldTile.cs">
+      <Link>TrProtocol\WorldTile.cs</Link>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="TrProtocol\NetworkTextMode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

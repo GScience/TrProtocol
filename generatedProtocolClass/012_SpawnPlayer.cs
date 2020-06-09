@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class SpawnPlayer : INetObject
+    public class Msg12SpawnPlayer : INetObject
     {
+        public const int ID = 12;
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -27,7 +28,7 @@ namespace TrProtocol
         /// <summary>
         /// 
         /// </summary>
-        public  playerSpawnContext = ;
+        public PlayerSpawnContext playerSpawnContext = default(PlayerSpawnContext);
 
         public void OnSerialize(BinaryWriter writer)
         {
@@ -49,4 +50,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 21:49:12

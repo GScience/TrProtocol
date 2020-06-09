@@ -1,0 +1,17 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "playerId",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "type",
+      "desc": "",
+      "type": "SpecialNPCEffectType:byte"
+    }
+  ]
+}

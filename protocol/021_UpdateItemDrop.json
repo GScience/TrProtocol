@@ -1,0 +1,52 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "itemId",
+      "desc": "If below 400 and NetID 0 Then Set NullIf ItemID is 400 Then New Item",
+      "type": "short"
+    },
+    {
+      "name": "positionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "positionY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "stackSize",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "prefix",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "noDelay",
+      "desc": "If 0 then ownIgnore = 0 and ownTime = 100",
+      "type": "byte"
+    },
+    {
+      "name": "itemNetId",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

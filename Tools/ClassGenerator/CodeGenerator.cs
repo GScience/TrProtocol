@@ -122,7 +122,9 @@ namespace ClassGenerator
             var fieldDefinesCode = "";
             var fieldSerializationCode = "";
             var fieldDeserializationCode = "";
-            
+            var hasCustomSerialization = !string.IsNullOrEmpty(typeInfo.serialization) && !string.IsNullOrEmpty(typeInfo.deserialization);
+            var indentation = "            ";
+
             foreach (var field in typeInfo.args)
             {
                 var defineCode = "";
@@ -130,7 +132,9 @@ namespace ClassGenerator
                 // Field defination
                 var defaultValue = "";
                 var typeName = "";
-                var fieldName = field.name;
+
+                var fieldName = field.name == null ? "" : field.name;
+                var fieldDesc = field.desc == null ? "" : field.desc;
 
                 var type = field.type.Replace(" ", "");
 
@@ -170,6 +174,9 @@ namespace ClassGenerator
                             var words = type.Split(':');
                             if (words.Length != 2)
                                 throw new Exception($"Not an invalid data cast");
+
+                            typeName = words[0];
+                            defaultValue = $"default({typeName})";
                         }
                         else
                         {
@@ -178,11 +185,9 @@ namespace ClassGenerator
                         }
                         break;
                 }
-                defineCode = string.Format(_fieldDefineTemplate, typeName, fieldName, defaultValue, field.desc);
+                defineCode = string.Format(_fieldDefineTemplate, typeName, fieldName, defaultValue, fieldDesc.Replace("\n", "\\n"));
 
-                var indentation = "            ";
-
-                if (string.IsNullOrEmpty(typeInfo.serialization) || string.IsNullOrEmpty(typeInfo.deserialization))
+                if (!hasCustomSerialization)
                 {
                     // field serialization
                     var serializationCode = GenerateSerializationCode(fieldName, field.type);
@@ -197,13 +202,14 @@ namespace ClassGenerator
                     fieldSerializationCode += indentation + serializationCode.serialization;
                     fieldDeserializationCode += indentation + serializationCode.deserialization;
                 }
-                else
-                {
-                    fieldSerializationCode += indentation + typeInfo.serialization.Replace("\\n", "\n" + indentation);
-                    fieldDeserializationCode += indentation + typeInfo.deserialization.Replace("\\n", "\n" + indentation);
-                }
 
                 fieldDefinesCode += defineCode;
+            }
+
+            if (hasCustomSerialization)
+            {
+                fieldSerializationCode += indentation + typeInfo.serialization.Replace("\n", "\n" + indentation);
+                fieldDeserializationCode += indentation + typeInfo.deserialization.Replace("\n", "\n" + indentation);
             }
 
             var classCode = string.Format(
@@ -212,7 +218,7 @@ namespace ClassGenerator
                 fieldDefinesCode, 
                 fieldSerializationCode,
                 fieldDeserializationCode,
-                typeInfo.desc);
+                typeInfo.desc.Replace("\n", "\\n"));
 
             return classCode;
         }

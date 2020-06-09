@@ -1,0 +1,79 @@
+{
+  "desc": "",
+  "c2s": true,
+  "s2c": true,
+  "args": [
+    {
+      "name": "projectileId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "positionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "positionY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "owner",
+      "desc": "Player ID",
+      "type": "byte"
+    },
+    {
+      "name": "type",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "projFlags",
+      "desc": "",
+      "type": "BitsByte"
+    },
+    {
+      "name": "AI0",
+      "desc": "Only sent if AI[0] flag is true",
+      "type": "float"
+    },
+    {
+      "name": "AI1",
+      "desc": "Only sent if AI[1] flag is true",
+      "type": "float"
+    },
+    {
+      "name": "Damage",
+      "desc": "Only sent if Damage flag is true",
+      "type": "short"
+    },
+    {
+      "name": "knockback",
+      "desc": "Only sent if Knockback flag is true",
+      "type": "float"
+    },
+    {
+      "name": "originalDamage",
+      "desc": "Only sent if OriginalDamage flag is true",
+      "type": "short"
+    },
+    {
+      "name": "projUUID",
+      "desc": "Only sent if ProjUUID flag is true",
+      "type": "short"
+    }
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
+}

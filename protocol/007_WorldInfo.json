@@ -71,7 +71,7 @@
     {
       "name": "worldGeneratorVersion",
       "desc": "World Generator Version",
-      "type": "long"
+      "type": "ulong"
     },
     {
       "name": "moonType",
@@ -169,11 +169,6 @@
       "type": "byte"
     },
     {
-      "name": "numClouds",
-      "desc": "Clouds amount",
-      "type": "byte"
-    },
-    {
       "name": "treeX",
       "desc": "Tree x",
       "type": "int[3]"
@@ -181,7 +176,7 @@
     {
       "name": "treeStyle",
       "desc": "Tree style",
-      "type": "int[4]"
+      "type": "byte[4]"
     },
     {
       "name": "caveBackX",
@@ -191,12 +186,12 @@
     {
       "name": "caveBackStyle",
       "desc": "Cave back style",
-      "type": "int[4]"
+      "type": "byte[4]"
     },
     {
       "name": "treeTopsVariations",
       "desc": "Tree tops variations",
-      "type": "int[13]"
+      "type": "byte[13]"
     },
     {
       "name": "maxRaining",
@@ -281,7 +276,7 @@
     {
       "name": "lobbyId",
       "desc": "Lobby ID",
-      "type": "long"
+      "type": "ulong"
     },
     {
       "name": "sandstormIntendedSeverity",

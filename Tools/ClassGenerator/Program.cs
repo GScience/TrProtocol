@@ -9,7 +9,33 @@ namespace ClassGenerator
 {
     class Program
     {
-        public const string classTemplate =
+        public const string msgClassTemplate =
+@"using System.IO;
+using System;
+
+namespace TrProtocol
+{{
+    /// <summary>
+    /// {4}
+    /// </summary>
+    public class {0} : INetObject
+    {{
+        public const int ID = $ID;
+{1}
+
+        public void OnSerialize(BinaryWriter writer)
+        {{
+{2}
+        }}
+
+        public void OnDeserialize(BinaryReader reader)
+        {{
+{3}
+        }}
+    }}
+}}";
+
+        public const string typeClassTemplate =
 @"using System.IO;
 using System;
 
@@ -91,8 +117,12 @@ namespace TrProtocol
             var loader = new TypeLoader();
             loader.Load(protocolPath);
 
-            var codeGenerator = new CodeGenerator(
-                classTemplate,
+            var msgCodeGenerator = new CodeGenerator(
+                msgClassTemplate,
+                fieldDefineTemplate);
+
+            var typeCodeGenerator = new CodeGenerator(
+                typeClassTemplate,
                 fieldDefineTemplate);
 
             var enumCodeGenerator = new CodeGenerator(
@@ -110,7 +140,7 @@ namespace TrProtocol
                 if (words[0] == "type")
                 {
                     fileName = words[1];
-                    code = codeGenerator.Generate(fileName, type.Value);
+                    code = typeCodeGenerator.Generate(fileName, type.Value);
                 }
                 else if (words[0] == "enum")
                 {
@@ -120,18 +150,20 @@ namespace TrProtocol
                 else if (int.TryParse(words[0], out var messageId))
                 {
                     fileName = type.Key;
-                    code = codeGenerator.Generate(words[1], type.Value);
+                    code = msgCodeGenerator.Generate("Msg" + messageId + words[1], type.Value);
+                    code = code.Replace("$ID", "" + messageId);
                 }
-                code += $"\n\n//Generate at {DateTime.Now}";
+                var fileInfo = new FileInfo(protocolPath + "/" + type.Key + ".json");
+                code += $"\n\n//Json file changed at {fileInfo.LastWriteTime}";
 
-                using (var outputFile = File.OpenWrite(output + "/" + fileName + ".cs"))
+                using (var outputFile = File.Open(output + "/" + fileName + ".cs", FileMode.Create))
                 using (var writer = new StreamWriter(outputFile))
                     writer.Write(code);
             }
 
-            using (var outputFile = File.OpenWrite(output + "/INetObjectCode.cs"))
-            using (var writer = new StreamWriter(outputFile))
-                writer.Write(iNetObjectCode);
+            using (var fs = File.Open(output + "/INetObjectCode.cs", FileMode.Create))
+                using (var writer = new StreamWriter(fs))
+                    writer.Write(iNetObjectCode);
         }
     }
 }

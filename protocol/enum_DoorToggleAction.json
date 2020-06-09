@@ -1,0 +1,23 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "OpenDoor"
+    },
+    {
+      "type": "CloseDoor"
+    },
+    {
+      "type": "OpenTrapdoor"
+    },
+    {
+      "type": "CloseTrapdoor"
+    },
+    {
+      "type": "OpenTallGate"
+    },
+    {
+      "type": "CloseTallGate"
+    }
+  ]
+}

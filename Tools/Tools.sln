@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassGenerator", "ClassGene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGenerator", "DocGenerator\DocGenerator.csproj", "{4DA6D1DB-7C3B-41DC-B271-8D36E9459D18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrForward", "TrForward\TrForward.csproj", "{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4DA6D1DB-7C3B-41DC-B271-8D36E9459D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA6D1DB-7C3B-41DC-B271-8D36E9459D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DA6D1DB-7C3B-41DC-B271-8D36E9459D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AA8801-0CD8-436A-BC50-EB5EEF40E8AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

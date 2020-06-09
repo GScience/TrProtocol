@@ -1,0 +1,14 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "type": "Literal"
+    },
+    {
+      "type": "Formattable"
+    },
+    {
+      "type": "LocalizationKey"
+    }
+  ]
+}

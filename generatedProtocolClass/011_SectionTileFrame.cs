@@ -6,8 +6,9 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class SectionTileFrame : INetObject
+    public class Msg11SectionTileFrame : INetObject
     {
+        public const int ID = 11;
         /// <summary>
         /// 
         /// </summary>
@@ -43,4 +44,4 @@ namespace TrProtocol
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 21:05:16

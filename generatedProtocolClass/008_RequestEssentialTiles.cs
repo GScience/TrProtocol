@@ -4,13 +4,11 @@ using System;
 namespace TrProtocol
 {
     /// <summary>
-    /// This packet is used once in the connecting phase and does the following:
-1.Sends you the spawn section
-2.Optionally, if spawn coords aren't -1 - sends you the sections of the selected position (which is the player's spawnpoint)
-Synchronises all portals and sections around them
+    /// This packet is used once in the connecting phase and does the following:\n1.Sends you the spawn section\n2.Optionally, if spawn coords aren't -1 - sends you the sections of the selected position (which is the player's spawnpoint)\nSynchronises all portals and sections around them
     /// </summary>
-    public class RequestEssentialTiles : INetObject
+    public class Msg8RequestEssentialTiles : INetObject
     {
+        public const int ID = 8;
         /// <summary>
         /// Player spawn x
         /// </summary>
@@ -34,4 +32,4 @@ Synchronises all portals and sections around them
     }
 }
 
-//Generate at 2020/6/9 22:04:50
+//Json file changed at 2020/6/9 19:52:36

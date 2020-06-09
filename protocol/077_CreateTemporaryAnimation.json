@@ -1,0 +1,27 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "animationType",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "tileType",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "x",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "y",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

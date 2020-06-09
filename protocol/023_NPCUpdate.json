@@ -1,0 +1,84 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "npcId",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "positionX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "positionY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityX",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "velocityY",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "target",
+      "desc": "Player ID",
+      "type": "ushort"
+    },
+    {
+      "name": "npcFlags1",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "npcFlags2",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "ai",
+      "desc": "",
+      "type": "AI"
+    },
+    {
+      "name": "npcNetID",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "playerCountForMultiplayerDifficultyOverride",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "strengthMultiplier",
+      "desc": "",
+      "type": "float"
+    },
+    {
+      "name": "lifeBytes",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "life",
+      "desc": "",
+      "type": "Variable"
+    },
+    {
+      "name": "releaseOwner",
+      "desc": "",
+      "type": "Byte"
+    }
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
+}
