@@ -812,7 +812,16 @@ Using default serialization method
 | name | [string](#string) | - |
 | townNpcVariationIndex | [int](#int) | - |
 
-Using default serialization method
+Serialization: 
+```csharp
+throw new NotImplementedException();
+```
+Deserialization: 
+```csharp
+throw new NotImplementedException();
+```
+
+
 #### [057]UpdateGoodEvil
 
 ##### Server  -> Client
@@ -1368,4 +1377,4 @@ throw new NotImplementedException();
 
 
 ----
-Generate at 2020/6/10 1:49:10
+Generate at 2020/6/10 1:52:17

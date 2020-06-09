@@ -12,30 +12,24 @@ namespace TrProtocol
         /// <summary>
         /// 
         /// </summary>
-        public short npcId = default(short);
-        /// <summary>
+        public short npcId = default(short);        /// <summary>
         /// 
         /// </summary>
-        public string name = default(string);
-        /// <summary>
+        public string name = default(string);        /// <summary>
         /// 
         /// </summary>
         public int townNpcVariationIndex = default(int);
 
         public void OnSerialize(BinaryWriter writer)
         {
-            writer.Write(npcId);
-            writer.Write(name);
-            writer.Write(townNpcVariationIndex);
+            throw new NotImplementedException();
         }
 
         public void OnDeserialize(BinaryReader reader)
         {
-            npcId = reader.ReadInt16();
-            name = reader.ReadString();
-            townNpcVariationIndex = reader.ReadInt32();
+            throw new NotImplementedException();
         }
     }
 }
 
-//Json file changed at 2020/6/10 1:23:40
+//Json file changed at 2020/6/10 1:50:43
