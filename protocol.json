@@ -1,0 +1,131 @@
+{
+	"000": {
+        "desc": "",
+        "args": []
+    },
+    "001_Version": {
+        "desc": "",
+        "args": [
+        	{
+        		"name": "version",
+        		"desc": "Terraria version",
+        		"type": "string"
+        	}
+        ]
+    },
+    "002_Kick": {
+        "desc": "",
+        "args": [
+        	{
+        		"name": "kickMsg",
+        		"desc": "Kick message",
+        		"type": "NetworkText"
+        	}
+        ]
+    },
+    "003_RemoveClient": {
+        "desc": "",
+        "args": [
+        	{
+        		"name": "remoteClient",
+        		"desc": "Remote client ID",
+        		"type": "byte"
+        	}
+        ]
+    },
+    "004_PlayerInfo": {
+        "desc": "",
+        "args": [
+        	{
+        		"name": "remoteClient",
+        		"desc": "Remote client ID",
+        		"type": "byte"
+        	},
+        	{
+        		"name": "skinVariant",
+        		"desc": "Skin Variant",
+        		"type": "byte"
+        	},
+        	{
+        		"name": "hair",
+        		"desc": "Hair",
+        		"type": "byte"
+        	},
+        	{
+        		"name": "name",
+        		"desc": "Name",
+        		"type": "string"
+        	},
+        	{
+        		"name": "hairDye",
+        		"desc": "Hair Dye",
+        		"type": "byte"
+        	},
+        	{
+        		"name": "hideVisibleAccessory1",
+        		"desc": "Hide visible accessory part 1",
+        		"type": "BitsByte"
+        	},
+        	{
+        		"name": "hideVisibleAccessory2",
+        		"desc": "Hide visible accessory part 2",
+        		"type": "BitsByte"
+        	},
+        	{
+        		"name": "hideMisc",
+        		"desc": "Hide Misc",
+        		"type": "byte"
+        	},
+        	{
+        		"name": "hairColor",
+        		"desc": "Hair Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "skinColor",
+        		"desc": "Skin Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "eyeColor",
+        		"desc": "Eye Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "shirtColor",
+        		"desc": "Shirt Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "underShirtColor",
+        		"desc": "Under Shirt Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "pantsColor",
+        		"desc": "Pants Color",
+        		"type": "Color"
+        	},
+        	{
+        		"name": "shoeColor",
+        		"desc": "Shoe Color",
+        		"type": "Color"
+        	},
+			{
+        		"name": "difficulty",
+        		"desc": "Difficulty",
+        		"type": "BitsByte"
+        	},
+        	{
+        		"name": "gameType",
+        		"desc": "",
+        		"type": "BitsByte"
+        	},
+        	{
+        		"name": "others",
+        		"desc": "",
+        		"type": "BitsByte"
+        	}
+        ]
+    }
+}
