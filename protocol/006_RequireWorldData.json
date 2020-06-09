@@ -1,0 +1,6 @@
+{
+  "desc": "Require world data",
+  "c2s": true,
+  "s2c": false,
+  "args": []
+}

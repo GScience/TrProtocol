@@ -1,0 +1,17 @@
+{
+  "desc": "This packet is used once in the connecting phase and does the following:\n1.Sends you the spawn section\n2.Optionally, if spawn coords aren't -1 - sends you the sections of the selected position (which is the player's spawnpoint)\nSynchronises all portals and sections around them",
+  "c2s": true,
+  "s2c": false,
+  "args": [
+  	{
+      "name": "x",
+      "desc": "Player spawn x",
+      "type": "int"
+    },
+    {
+      "name": "y",
+      "desc": "Player spawn y",
+      "type": "int"
+    }
+  ]
+}

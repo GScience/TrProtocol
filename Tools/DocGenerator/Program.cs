@@ -14,18 +14,20 @@ namespace DocGenerator
 @"| {0} | {1} | {2} |";
 
         public const string messageTemplate =
-@"- Message {0}
+@"### Message {0}
 
 | arg | type | description |
 | ----- | ----- | ----- |
-{1}";
+{1}
+{2}";
 
         public const string typeTemplate =
-@"- Type {0}
+@"### Type {0}
 
 | field | type | description |
 | ----- | ----- | ----- |
-{1}";
+{1}
+{2}";
 
         static void Main(string[] args)
         {
@@ -48,7 +50,7 @@ namespace DocGenerator
 
             var msgCodeGenerator = new CodeGenerator(argTemplate, messageTemplate);
             var typeCodeGenerator = new CodeGenerator(argTemplate, typeTemplate);
-            var docCode = "# Terraria protocol\n";
+            var docCode = "## Terraria protocol\n";
 
             foreach (var type in loader.types)
             {

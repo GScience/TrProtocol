@@ -1,0 +1,67 @@
+{
+  "desc": "",
+  "c2s": false,
+  "s2c": true,
+  "args": [
+    {
+      "name": "compressed",
+      "desc": "Terraria version",
+      "type": "bool"
+    },
+    {
+      "name": "xStart",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "yStart",
+      "desc": "",
+      "type": "int"
+    },
+    {
+      "name": "width",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "height",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "tiles",
+      "desc": "",
+      "type": "WorldTile"
+    },
+    {
+      "name": "chestCount",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "chests",
+      "desc": "",
+      "type": ""
+    },
+    {
+      "name": "signCount",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "signs",
+      "desc": "",
+      "type": ""
+    },
+    {
+      "name": "tileEntityCount",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "tileEntities",
+      "desc": "",
+      "type": ""
+    }
+  ]
+}

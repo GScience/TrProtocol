@@ -1,4 +1,6 @@
 {
   "desc": "",
+  "c2s": false,
+  "s2c": false,
   "args": []
 }

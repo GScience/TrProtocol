@@ -1,0 +1,50 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "type",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "wall",
+      "desc": "",
+      "type": "ushort"
+    },
+    {
+      "name": "liquid",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "sTileHeader",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "bTileHeader",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "bTileHeader2",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "bTileHeader3",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "frameX",
+      "desc": "",
+      "type": "short"
+    },
+    {
+      "name": "frameY",
+      "desc": "",
+      "type": "short"
+    }
+  ]
+}

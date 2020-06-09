@@ -74,6 +74,10 @@ namespace ClassGenerator
                     code.deserialization = $"{fieldName} = reader.ReadString();";
                     code.serialization = $"writer.Write({fieldName});";
                     break;
+                case "bool":
+                    code.deserialization = $"{fieldName} = reader.ReadBoolean();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
                 default:
                     // Array
                     if (type.Contains("["))
@@ -127,6 +131,7 @@ namespace ClassGenerator
                     case "byte":
                     case "float":
                     case "string":
+                    case "bool":
                         defaultValue = $"default({field.type})";
                         typeName = field.type;
                         break;
@@ -153,19 +158,30 @@ namespace ClassGenerator
                 }
                 defineCode = string.Format(_fieldDefineTemplate, typeName, fieldName, defaultValue, field.desc);
 
-                // field serialization
-                var serializationCode = GenerateSerializationCode(fieldName, field.type);
+                var indentation = "            ";
 
-                if (!string.IsNullOrEmpty(fieldDefinesCode))
-                    fieldDefinesCode += "\n";
-                if (!string.IsNullOrEmpty(fieldSerializationCode))
-                    fieldSerializationCode += "\n";
-                if (!string.IsNullOrEmpty(fieldDeserializationCode))
-                    fieldDeserializationCode += "\n";
+                if (string.IsNullOrEmpty(typeInfo.serialization) || string.IsNullOrEmpty(typeInfo.deserialization))
+                {
+                    // field serialization
+                    var serializationCode = GenerateSerializationCode(fieldName, field.type);
+
+                    if (!string.IsNullOrEmpty(fieldDefinesCode))
+                        fieldDefinesCode += "\n";
+                    if (!string.IsNullOrEmpty(fieldSerializationCode))
+                        fieldSerializationCode += "\n";
+                    if (!string.IsNullOrEmpty(fieldDeserializationCode))
+                        fieldDeserializationCode += "\n";
+
+                    fieldSerializationCode += indentation + serializationCode.serialization;
+                    fieldDeserializationCode += indentation + serializationCode.deserialization;
+                }
+                else
+                {
+                    fieldSerializationCode += indentation + typeInfo.serialization.Replace("\\n", "\n" + indentation);
+                    fieldDeserializationCode += indentation + typeInfo.deserialization.Replace("\\n", "\n" + indentation);
+                }
 
                 fieldDefinesCode += defineCode;
-                fieldSerializationCode += "            " + serializationCode.serialization;
-                fieldDeserializationCode += "            " + serializationCode.deserialization;
             }
 
             var classCode = string.Format(

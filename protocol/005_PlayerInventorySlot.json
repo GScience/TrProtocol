@@ -1,5 +1,7 @@
 {
   "desc": "",
+  "c2s": true,
+  "s2c": true,
   "args": [
     {
       "name": "remoteClient",

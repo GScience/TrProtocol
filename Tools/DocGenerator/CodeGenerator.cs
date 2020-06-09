@@ -18,21 +18,38 @@ namespace DocGenerator
             _headTemplate = headTemplate;
         }
 
+        private string GenerateCodeBox(string code)
+        {
+            return
+$@"```csharp
+{code}
+```
+";
+        }
         public string Generate(string name, TypeInfo typeInfo)
         {
             var argsCode = "";
             foreach (var arg in typeInfo.args)
             {
-                var argCode = string.Format(_argTemplate, arg.name, arg.type, arg.desc);
+                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#Type {arg.type})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
 
                 if (!string.IsNullOrEmpty(argsCode))
                     argsCode += "\n";
                 argsCode += argCode;
             }
 
-            var code = string.Format(_headTemplate, name, argsCode);
-
-            return code;
+            if (!string.IsNullOrEmpty(typeInfo.serialization) && !string.IsNullOrEmpty(typeInfo.deserialization))
+            {
+                var serializationCode = typeInfo.serialization;
+                var deserializationCode = typeInfo.deserialization;
+                return
+                    string.Format(
+                        _headTemplate,
+                        name,
+                        argsCode,
+                        "Serialization: \n" + GenerateCodeBox(serializationCode) + "Deserialization: \n" + GenerateCodeBox(deserializationCode) + "\n");
+            }
+            return string.Format(_headTemplate, name, argsCode, "Using default serialization method");
         }
     }
 }

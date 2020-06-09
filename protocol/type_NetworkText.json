@@ -1,0 +1,15 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "mode",
+      "desc": "",
+      "type": "byte"
+    },
+    {
+      "name": "text",
+      "desc": "",
+      "type": "string"
+    }
+  ]
+}

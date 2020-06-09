@@ -1,0 +1,12 @@
+ {
+  "desc": "",
+  "args": [
+    {
+      "name": "tile",
+      "desc": "",
+      "type": "Tile"
+    }
+  ],
+  "serialization": "throw new NotImplementedException();",
+  "deserialization": "throw new NotImplementedException();"
+}

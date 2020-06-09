@@ -1,5 +1,7 @@
 {
   "desc": "World info",
+  "c2s": false,
+  "s2c": true,
   "args": [
     {
       "name": "time",
