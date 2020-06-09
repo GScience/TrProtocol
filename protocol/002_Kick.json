@@ -1,0 +1,10 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "kickMsg",
+      "desc": "Kick message",
+      "type": "NetworkText"
+    }
+  ]
+}

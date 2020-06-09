@@ -1,0 +1,10 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "data",
+      "desc": "Data",
+      "type": "byte"
+    }
+  ]
+}

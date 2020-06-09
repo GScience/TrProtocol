@@ -1,0 +1,10 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "version",
+      "desc": "Terraria version",
+      "type": "string"
+    }
+  ]
+}

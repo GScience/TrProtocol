@@ -1,0 +1,30 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "remoteClient",
+      "desc": "Remote client ID",
+      "type": "byte"
+    },
+    {
+      "name": "slotId",
+      "desc": "Slot ID",
+      "type": "byte"
+    },
+    {
+      "name": "stack",
+      "desc": "Stack",
+      "type": "short"
+    },
+    {
+      "name": "prefix",
+      "desc": "Prefix",
+      "type": "byte"
+    },
+    {
+      "name": "netId",
+      "desc": "Net ID",
+      "type": "short"
+    }
+  ]
+}

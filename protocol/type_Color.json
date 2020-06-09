@@ -1,0 +1,20 @@
+{
+  "desc": "Color",
+  "args": [
+    {
+      "name": "r",
+      "desc": "Red",
+      "type": "byte"
+    },
+    {
+      "name": "g",
+      "desc": "Red",
+      "type": "byte"
+    },
+    {
+      "name": "b",
+      "desc": "Red",
+      "type": "byte"
+    }
+  ]
+}

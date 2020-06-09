@@ -1,0 +1,10 @@
+{
+  "desc": "",
+  "args": [
+    {
+      "name": "remoteClient",
+      "desc": "Remote client ID",
+      "type": "byte"
+    }
+  ]
+}

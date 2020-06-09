@@ -1,0 +1,290 @@
+{
+  "desc": "World info",
+  "args": [
+    {
+      "name": "time",
+      "desc": "Time",
+      "type": "int"
+    },
+    {
+      "name": "worldTime",
+      "desc": "Day time, blood moon and eclipse",
+      "type": "BitsByte"
+    },
+    {
+      "name": "moonPhase",
+      "desc": "Moon Phase",
+      "type": "byte"
+    },
+    {
+      "name": "maxTilesX",
+      "desc": "Max tiles x",
+      "type": "short"
+    },
+    {
+      "name": "maxTilesY",
+      "desc": "Max tiles y",
+      "type": "short"
+    },
+    {
+      "name": "spawnTilesX",
+      "desc": "Spawn tiles x",
+      "type": "short"
+    },
+    {
+      "name": "spawnTilesY",
+      "desc": "Spawn tiles y",
+      "type": "short"
+    },
+    {
+      "name": "worldSurface",
+      "desc": "World surface",
+      "type": "short"
+    },
+    {
+      "name": "rockLayer",
+      "desc": "Rock Layer",
+      "type": "short"
+    },
+    {
+      "name": "worldId",
+      "desc": "World ID",
+      "type": "int"
+    },
+    {
+      "name": "worldName",
+      "desc": "World Name",
+      "type": "string"
+    },
+    {
+      "name": "gameMode",
+      "desc": "Game Mode",
+      "type": "byte"
+    },
+    {
+      "name": "uuid",
+      "desc": "UUID",
+      "type": "byte[16]"
+    },
+    {
+      "name": "worldGeneratorVersion",
+      "desc": "World Generator Version",
+      "type": "long"
+    },
+    {
+      "name": "moonType",
+      "desc": "Moon Type",
+      "type": "byte"
+    },
+    {
+      "name": "treeBG1",
+      "desc": "Tree BG1",
+      "type": "byte"
+    },
+    {
+      "name": "treeBG2",
+      "desc": "Tree BG2",
+      "type": "byte"
+    },
+    {
+      "name": "treeBG3",
+      "desc": "Tree BG3",
+      "type": "byte"
+    },
+    {
+      "name": "treeBG4",
+      "desc": "Tree BG4",
+      "type": "byte"
+    },
+    {
+      "name": "corruptBG",
+      "desc": "Corrupt BG",
+      "type": "byte"
+    },
+    {
+      "name": "jungleBG",
+      "desc": "Jungle BG",
+      "type": "byte"
+    },
+    {
+      "name": "snowBG",
+      "desc": "Snow BG",
+      "type": "byte"
+    },
+    {
+      "name": "hallowBG",
+      "desc": "Hallow BG",
+      "type": "byte"
+    },
+    {
+      "name": "crimsonBG",
+      "desc": "Crimson BG",
+      "type": "byte"
+    },
+    {
+      "name": "desertBG",
+      "desc": "Desert BG",
+      "type": "byte"
+    },
+    {
+      "name": "oceanBG",
+      "desc": "Ocean BG",
+      "type": "byte"
+    },
+    {
+      "name": "mushroomBG",
+      "desc": "Mushroom BG",
+      "type": "byte"
+    },
+    {
+      "name": "underworldBG",
+      "desc": "Underworld BG",
+      "type": "byte"
+    },
+    {
+      "name": "iceBackStyle",
+      "desc": "Ice back style",
+      "type": "byte"
+    },
+    {
+      "name": "jungleBackStyle",
+      "desc": "Jungle back style",
+      "type": "byte"
+    },
+    {
+      "name": "hellBackStyle",
+      "desc": "Hell back style",
+      "type": "byte"
+    },
+    {
+      "name": "windSpeedTarget",
+      "desc": "Wind speed target",
+      "type": "float"
+    },
+    {
+      "name": "numClouds",
+      "desc": "Clouds amount",
+      "type": "byte"
+    },
+    {
+      "name": "numClouds",
+      "desc": "Clouds amount",
+      "type": "byte"
+    },
+    {
+      "name": "treeX",
+      "desc": "Tree x",
+      "type": "int[3]"
+    },
+    {
+      "name": "treeStyle",
+      "desc": "Tree style",
+      "type": "int[4]"
+    },
+    {
+      "name": "caveBackX",
+      "desc": "Cave back x",
+      "type": "int[3]"
+    },
+    {
+      "name": "caveBackStyle",
+      "desc": "Cave back style",
+      "type": "int[4]"
+    },
+    {
+      "name": "treeTopsVariations",
+      "desc": "Tree tops variations",
+      "type": "int[13]"
+    },
+    {
+      "name": "maxRaining",
+      "desc": "Max Raining",
+      "type": "float"
+    },
+    {
+      "name": "worldState1",
+      "desc": "World state part 1",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState2",
+      "desc": "World state part 2",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState3",
+      "desc": "World state part 3",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState4",
+      "desc": "World state part 4",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState5",
+      "desc": "World state part 5",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState6",
+      "desc": "World state part 6",
+      "type": "BitsByte"
+    },
+    {
+      "name": "worldState7",
+      "desc": "World state part 7",
+      "type": "BitsByte"
+    },
+    {
+      "name": "savedOreTiersCopper",
+      "desc": "Saved ore tiers copper",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersIron",
+      "desc": "Saved ore tiers Iron",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersSilver",
+      "desc": "Saved ore tiers silver",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersGold",
+      "desc": "Saved ore tiers gold",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersCobalt",
+      "desc": "Saved ore tiers cobalt",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersMythril",
+      "desc": "Saved ore tiers mythril",
+      "type": "short"
+    },
+    {
+      "name": "savedOreTiersAdamantite",
+      "desc": "Saved ore tiers adamantite",
+      "type": "short"
+    },
+    {
+      "name": "invasionType",
+      "desc": "Invasion Type",
+      "type": "sbyte"
+    },
+    {
+      "name": "lobbyId",
+      "desc": "Lobby ID",
+      "type": "long"
+    },
+    {
+      "name": "sandstormIntendedSeverity",
+      "desc": "Sandstorm Intended Severity",
+      "type": "float"
+    }
+  ]
+}
