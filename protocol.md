@@ -4,24 +4,28 @@
 | arg | type | description |
 | ----- | ----- | ----- |
 
+
 Using default serialization method
 ### Message [001]ConnectRequest
 
 | arg | type | description |
 | ----- | ----- | ----- |
 | version | [string](#Type-string) | Terraria version |
+
 Using default serialization method
 ### Message [002]Disconnect
 
 | arg | type | description |
 | ----- | ----- | ----- |
 | kickMsg | [NetworkText](#Type-NetworkText) | Kick message |
+
 Using default serialization method
 ### Message [003]SetUserSlot
 
 | arg | type | description |
 | ----- | ----- | ----- |
 | playerId | [byte](#Type-byte) | Remote player ID |
+
 Using default serialization method
 ### Message [004]PlayerInfo
 
@@ -45,6 +49,7 @@ Using default serialization method
 | difficulty | [BitsByte](#Type-BitsByte) | Difficulty |
 | gameType | [BitsByte](#Type-BitsByte) | - |
 | others | [BitsByte](#Type-BitsByte) | - |
+
 Using default serialization method
 ### Message [005]PlayerInventorySlot
 
@@ -55,11 +60,13 @@ Using default serialization method
 | stack | [short](#Type-short) | Stack |
 | prefix | [byte](#Type-byte) | Prefix |
 | netId | [short](#Type-short) | Net ID |
+
 Using default serialization method
 ### Message [006]RequireWorldData
 
 | arg | type | description |
 | ----- | ----- | ----- |
+
 
 Using default serialization method
 ### Message [007]WorldInfo
@@ -123,6 +130,7 @@ Using default serialization method
 | invasionType | [sbyte](#Type-sbyte) | Invasion Type |
 | lobbyId | [long](#Type-long) | Lobby ID |
 | sandstormIntendedSeverity | [float](#Type-float) | Sandstorm Intended Severity |
+
 Using default serialization method
 ### Message [008]RequestEssentialTiles
 
@@ -130,6 +138,7 @@ Using default serialization method
 | ----- | ----- | ----- |
 | x | [int](#Type-int) | Player spawn x |
 | y | [int](#Type-int) | Player spawn y |
+
 Using default serialization method
 ### Message [009]Status
 
@@ -137,6 +146,7 @@ Using default serialization method
 | ----- | ----- | ----- |
 | statusMax | [int](#Type-int) | Status only increases |
 | statusMax | [NetworkText](#Type-NetworkText) | Status only increases |
+
 Using default serialization method
 ### Message [010]SendSection
 
@@ -154,12 +164,14 @@ Using default serialization method
 | signs | [](#Type-) | - |
 | tileEntityCount | [short](#Type-short) | - |
 | tileEntities | [](#Type-) | - |
+
 Using default serialization method
 ### Type BitsByte
 
 | field | type | description |
 | ----- | ----- | ----- |
 | data | [byte](#Type-byte) | Data |
+
 Using default serialization method
 ### Type Color
 
@@ -168,6 +180,7 @@ Using default serialization method
 | r | [byte](#Type-byte) | Red |
 | g | [byte](#Type-byte) | Red |
 | b | [byte](#Type-byte) | Red |
+
 Using default serialization method
 ### Type NetworkText
 
@@ -175,6 +188,7 @@ Using default serialization method
 | ----- | ----- | ----- |
 | mode | [byte](#Type-byte) | - |
 | text | [string](#Type-string) | - |
+
 Using default serialization method
 ### Type Tile
 
@@ -189,12 +203,14 @@ Using default serialization method
 | bTileHeader3 | [byte](#Type-byte) | - |
 | frameX | [short](#Type-short) | - |
 | frameY | [short](#Type-short) | - |
+
 Using default serialization method
 ### Type WorldTile
 
 | field | type | description |
 | ----- | ----- | ----- |
 | tile | [Tile](#Type-Tile) | - |
+
 Serialization: 
 ```csharp
 throw new NotImplementedException();
@@ -206,4 +222,4 @@ throw new NotImplementedException();
 
 
 ----
-Generate at 2020/6/9 21:00:28
+Generate at 2020/6/9 21:02:46

@@ -19,6 +19,7 @@ namespace DocGenerator
 | arg | type | description |
 | ----- | ----- | ----- |
 {1}
+
 {2}";
 
         public const string typeTemplate =
@@ -27,6 +28,7 @@ namespace DocGenerator
 | field | type | description |
 | ----- | ----- | ----- |
 {1}
+
 {2}";
 
         static void Main(string[] args)
