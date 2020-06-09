@@ -31,7 +31,7 @@ $@"```csharp
             var argsCode = "";
             foreach (var arg in typeInfo.args)
             {
-                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#Type {arg.type})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
+                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#Type-{arg.type})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
 
                 if (!string.IsNullOrEmpty(argsCode))
                     argsCode += "\n";
