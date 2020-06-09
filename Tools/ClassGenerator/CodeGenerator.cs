@@ -11,6 +11,12 @@ namespace ClassGenerator
 {
     public class CodeGenerator
     {
+        private struct SerializationCodePair
+        {
+            public string serialization;
+            public string deserialization;
+        }
+
         private string _classTemplate;
         private string _fieldDefineTemplate;
 
@@ -20,6 +26,78 @@ namespace ClassGenerator
         {
             _classTemplate = classTemplate;
             _fieldDefineTemplate = fieldTemplate;
+        }
+
+        private SerializationCodePair GenerateSerializationCode(string fieldName, string type, int depth = 0)
+        {
+            var code = new SerializationCodePair();
+
+            switch (type)
+            {
+                case "long":
+                    code.deserialization = $"{fieldName} = reader.ReadInt64();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "int":
+                    code.deserialization = $"{fieldName} = reader.ReadInt32();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "short":
+                    code.deserialization = $"{fieldName} = reader.ReadInt16();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "sbyte":
+                    code.deserialization = $"{fieldName} = reader.ReadSByte();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "ulong":
+                    code.deserialization = $"{fieldName} = reader.ReadUInt64();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "uint":
+                    code.deserialization = $"{fieldName} = reader.ReadUInt32();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "ushort":
+                    code.deserialization = $"{fieldName} = reader.ReadUInt16();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "byte":
+                    code.deserialization = $"{fieldName} = reader.ReadByte();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "float":
+                    code.deserialization = $"{fieldName} = reader.ReadSingle();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                case "string":
+                    code.deserialization = $"{fieldName} = reader.ReadString();";
+                    code.serialization = $"writer.Write({fieldName});";
+                    break;
+                default:
+                    // Array
+                    if (type.Contains("["))
+                    {
+                        var words = type.Split('[', ']');
+                        if (words.Length != 3)
+                            throw new Exception($"Not an invalid array type: {type}");
+                        if (!int.TryParse(words[1], out var arraySize))
+                            throw new Exception($"Not an invalid array size: {words[1]}");
+
+                        var elementType = words[0];
+                        var loopVarName = new string((char)('i' + depth), 1);
+                        var elementSerialization = GenerateSerializationCode($"{fieldName}[{loopVarName}]", elementType);
+                        code.deserialization = $"for (var {loopVarName} = 0; {loopVarName} < {arraySize}; ++{loopVarName}) " + elementSerialization.deserialization;
+                        code.serialization = $"for (var {loopVarName} = 0; {loopVarName} < {arraySize}; ++{loopVarName}) " + elementSerialization.serialization;
+                    }
+                    else
+                    {
+                        code.deserialization = $"{fieldName}.OnDeserialize(reader);";
+                        code.serialization = $"{fieldName}.OnSerialize(writer);";
+                    }
+                    break;
+            }
+            return code;
         }
 
         public string Generate(string name, TypeInfo typeInfo)
@@ -57,74 +135,26 @@ namespace ClassGenerator
                         if (field.type.Contains("["))
                         {
                             var words = field.type.Split('[', ']');
-                            if (words.Length != 3)
+                            if (words.Length % 2 == 0)
                                 throw new Exception($"Not an invalid array type: {field.type}");
                             if (!int.TryParse(words[1], out var arraySize))
                                 throw new Exception($"Not an invalid array size: {words[1]}");
 
-                            typeName = words[0];
-                            defaultValue = $"new {typeName}[{arraySize}]";
+                            var elementType = words[0];
+                            typeName = elementType + "[]";
+                            defaultValue = $"new {elementType}[{arraySize}]";
                         }
                         else
                         {
                             typeName = field.type;
-                            defaultValue = $"new {typeName}";
+                            defaultValue = $"new {typeName}()";
                         }
                         break;
                 }
                 defineCode = string.Format(_fieldDefineTemplate, typeName, fieldName, defaultValue, field.desc);
 
                 // field serialization
-                var deserializationCode = "";
-                var serializationCode = "";
-
-                switch (field.type)
-                {
-                    case "long":
-                        deserializationCode = $"{fieldName} = reader.ReadInt64();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "int":
-                        deserializationCode = $"{fieldName} = reader.ReadInt32();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "short":
-                        deserializationCode = $"{fieldName} = reader.ReadInt16();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "sbyte":
-                        deserializationCode = $"{fieldName} = reader.ReadSByte();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "ulong":
-                        deserializationCode = $"{fieldName} = reader.ReadUInt64();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "uint":
-                        deserializationCode = $"{fieldName} = reader.ReadUInt32();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "ushort":
-                        deserializationCode = $"{fieldName} = reader.ReadUInt16();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "byte":
-                        deserializationCode = $"{fieldName} = reader.ReadByte();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "float":
-                        deserializationCode = $"{fieldName} = reader.ReadSingle();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    case "string":
-                        deserializationCode = $"{fieldName} = reader.ReadString();";
-                        serializationCode = $"writer.Write({fieldName});";
-                        break;
-                    default:
-                        deserializationCode = $"{fieldName}.OnDeserialize(reader);";
-                        serializationCode = $"{fieldName}.OnSerialize(writer);";
-                        break;
-                }
+                var serializationCode = GenerateSerializationCode(fieldName, field.type);
 
                 if (!string.IsNullOrEmpty(fieldDefinesCode))
                     fieldDefinesCode += "\n";
@@ -134,8 +164,8 @@ namespace ClassGenerator
                     fieldDeserializationCode += "\n";
 
                 fieldDefinesCode += defineCode;
-                fieldSerializationCode += "            " + serializationCode;
-                fieldDeserializationCode += "            " + deserializationCode;
+                fieldSerializationCode += "            " + serializationCode.serialization;
+                fieldDeserializationCode += "            " + serializationCode.deserialization;
             }
 
             var classCode = string.Format(
