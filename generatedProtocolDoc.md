@@ -612,11 +612,49 @@ Methods:
 
 Serialization: 
 ```csharp
-throw new NotImplementedException();
+writer.Write(projectileId);
+writer.Write(positionX);
+writer.Write(positionY);
+writer.Write(velocityX);
+writer.Write(velocityY);
+writer.Write(owner);
+writer.Write(type);
+projFlags.OnSerialize(writer);
+if (projFlags[0])
+    writer.Write(AI0);
+if (projFlags[1])
+    writer.Write(AI1);
+if (projFlags[4])
+    writer.Write(Damage);
+if (projFlags[5])
+    writer.Write(knockback);
+if (projFlags[6])
+    writer.Write(originalDamage);
+if (projFlags[7])
+    writer.Write(projUUID);
 ```
 Deserialization: 
 ```csharp
-throw new NotImplementedException();
+projectileId = reader.ReadInt16();
+positionX = reader.ReadSingle();
+positionY = reader.ReadSingle();
+velocityX = reader.ReadSingle();
+velocityY = reader.ReadSingle();
+owner = reader.ReadByte();
+type = reader.ReadInt16();
+projFlags.OnDeserialize(reader);
+if (projFlags[0])
+    AI0 = reader.ReadSingle();
+if (projFlags[1])
+    AI1 = reader.ReadSingle();
+if (projFlags[4])
+    Damage = reader.ReadInt16();
+if (projFlags[5])
+    knockback = reader.ReadSingle();
+if (projFlags[6])
+    originalDamage = reader.ReadInt16();
+if (projFlags[7])
+    projUUID = reader.ReadInt16();
 ```
 
 
@@ -1348,6 +1386,304 @@ Methods:
 Using default serialization method
 
 Methods: 
+#### [082]NetModule
+
+##### Server  -> Client
+
+| arg | type | description |
+| ----- | ----- | ----- |
+| moduleId | [short](#short) | - |
+| moduleValue | [Dictionary<string, object>](#Dictionary<string, object>) | - |
+
+Serialization: 
+```csharp
+writer.Write(moduleId);
+switch (moduleId)
+{
+    case 0:
+        WriteLiquidModule(writer);
+        break;
+    case 1:
+        WriteTextModule(writer);
+        break;
+    case 2:
+        WritePingModule(writer);
+        break;
+    case 3:
+        WriteAmbienceModule(writer);
+        break;
+    case 4:
+        WriteBestiaryModule(writer);
+        break;
+    case 5:
+    case 6:
+    case 7:
+        throw new NotImplementedException();
+    case 8:
+        WriteTeleportPylonModule(writer);
+        break;
+    case 9:
+        WriteParticlesModule(writer);
+        break;
+    case 10:
+        throw new NotImplementedException();
+}
+```
+Deserialization: 
+```csharp
+moduleId = reader.ReadInt16();
+switch (moduleId)
+{
+    case 0:
+        ReadLiquidModule(reader);
+        break;
+    case 1:
+        ReadTextModule(reader);
+        break;
+    case 2:
+        ReadPingModule(reader);
+        break;
+    case 3:
+        ReadAmbienceModule(reader);
+        break;
+    case 4:
+        ReadBestiaryModule(reader);
+        break;
+    case 5:
+    case 6:
+    case 7:
+        throw new NotImplementedException();
+    case 8:
+        ReadTeleportPylonModule(reader);
+        break;
+    case 9:
+        ReadParticlesModule(reader);
+        break;
+    case 10:
+        throw new NotImplementedException();
+}
+```
+
+
+
+Methods: 
+```csharp
+private void ReadAmbienceModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    moduleValue["playerId"] = reader.ReadByte();
+    moduleValue["random"] = reader.ReadInt32();
+    moduleValue["type"] = reader.ReadByte();
+}
+```
+
+```csharp
+private void WriteAmbienceModule(BinaryWriter writer)
+{
+    writer.Write((byte)moduleValue["playerId"]);
+    writer.Write((int)moduleValue["random"]);
+    writer.Write((byte)moduleValue["type"]);
+}
+```
+
+```csharp
+private void ReadBestiaryModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    var type = reader.ReadByte();
+    moduleValue["type"] = type;
+    switch (type)
+    {
+        case 0:
+            moduleValue["npcId"] = reader.ReadInt16();
+            moduleValue["killCount"] = reader.ReadUInt16();
+            break;
+        case 1:
+            moduleValue["wasSeen"] = reader.ReadInt16();
+            break;
+        case 2:
+            moduleValue["wasChatWith"] = reader.ReadInt16();
+            break;
+    }
+}
+```
+
+```csharp
+private void WriteBestiaryModule(BinaryWriter writer)
+{
+    var type = (byte)moduleValue["type"];
+    writer.Write(type);
+    switch (type)
+    {
+        case 0:
+            writer.Write((short)moduleValue["npcId"]);
+            writer.Write((ushort)moduleValue["killCount"]);
+            break;
+        case 1:
+            writer.Write((short)moduleValue["wasSeen"]);
+            break;
+        case 2:
+            writer.Write((short)moduleValue["wasChatWith"]);
+            break;
+    }
+}
+```
+
+```csharp
+private void ReadCreativePowerPermissionsModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    moduleValue["type"] = reader.ReadByte();
+    moduleValue["powerId"] = reader.ReadUInt16();
+    moduleValue["level"] = reader.ReadByte();
+}
+```
+
+```csharp
+private void WriteCreativePowerPermissionsModule(BinaryWriter writer)
+{
+    writer.Write((byte)moduleValue["type"]);
+    writer.Write((ushort)moduleValue["powerId"]);
+    writer.Write((byte)moduleValue["level"]);
+}
+```
+
+```csharp
+private void ReadLiquidModule(BinaryReader reader)
+{
+    var count = reader.ReadUInt16();
+    var changes = new List<Tuple<int, ushort, ushort>>(); 
+    for (var i = 0; i < count; ++i)
+    {
+        var change = reader.ReadInt32();
+        var liquid = reader.ReadUInt16();
+        var liquidType = reader.ReadUInt16();
+        changes.Add(new Tuple<int, ushort, ushort>(change, liquid, liquidType));
+    }
+    moduleValue["changes"] = changes;
+}
+```
+
+```csharp
+private void WriteLiquidModule(BinaryWriter writer)
+{
+    var changes = (List<Tuple<int, ushort, ushort>>)moduleValue["changes"];
+    writer.Write((ushort)changes.Count);
+    foreach (var change in changes)
+    {
+        writer.Write(change.Item1);
+        writer.Write(change.Item2);
+        writer.Write(change.Item3);
+    }
+}
+```
+
+```csharp
+private void ReadParticlesModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    moduleValue["particleType"] = reader.ReadByte();
+    moduleValue["positionInWorldX"] = reader.ReadSingle();
+    moduleValue["positionInWorldY"] = reader.ReadSingle();
+    moduleValue["movementVectorX"] = reader.ReadSingle();
+    moduleValue["movementVectorY"] = reader.ReadSingle();
+    moduleValue["packedShaderIndex"] = reader.ReadInt32();
+    moduleValue["indexOfPlayerWhoInvokedThis"] = reader.ReadByte();
+}
+```
+
+```csharp
+private void WriteParticlesModule(BinaryWriter writer)
+{
+    writer.Write((byte)moduleValue["particleType"]);
+    writer.Write((float)moduleValue["positionInWorldX"]);
+    writer.Write((float)moduleValue["positionInWorldY"]);
+    writer.Write((float)moduleValue["movementVectorX"]);
+    writer.Write((float)moduleValue["movementVectorY"]);
+    writer.Write((int)moduleValue["packedShaderIndex"]);
+    writer.Write((byte)moduleValue["indexOfPlayerWhoInvokedThis"]);
+}
+```
+
+```csharp
+private void ReadPingModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    moduleValue["positionX"] = reader.ReadSingle();
+    moduleValue["positionY"] = reader.ReadSingle();
+}
+```
+
+```csharp
+private void WritePingModule(BinaryWriter writer)
+{
+    writer.Write((float)moduleValue["positionX"]);
+    writer.Write((float)moduleValue["positionY"]);
+}
+```
+
+```csharp
+private void ReadTeleportPylonModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    moduleValue["packetType"] = reader.ReadByte();
+    moduleValue["positionInTilesX"] = reader.ReadInt16();
+    moduleValue["positionInTilesY"] = reader.ReadInt16();
+    moduleValue["typeOfPylon"] = reader.ReadByte();
+}
+```
+
+```csharp
+private void WriteTeleportPylonModule(BinaryWriter writer)
+{
+    writer.Write((byte)moduleValue["packetType"]);
+    writer.Write((short)moduleValue["positionInTilesX"]);
+    writer.Write((short)moduleValue["positionInTilesY"]);
+    writer.Write((byte)moduleValue["typeOfPylon"]);
+}
+```
+
+```csharp
+private void ReadTextModule(BinaryReader reader)
+{
+    moduleValue.Clear();
+    if (Side == Side.Server)
+    {
+        moduleValue["authorId"] = reader.ReadByte();
+        var text = new NetworkText();
+        text.OnDeserialize(reader);
+        moduleValue["text"] = text;
+        var color = new Color();
+        color.OnDeserialize(reader);
+        moduleValue["color"] = color;
+    }
+    else if (Side == Side.Client)
+    {
+        var cmdId = reader.ReadString();
+        moduleValue["cmdId"] = cmdId;
+        var text = reader.ReadString();
+        moduleValue["text"] = text;
+    }
+}
+```
+
+```csharp
+private void WriteTextModule(BinaryWriter writer)
+{
+    if (Side == Side.Server)
+    {
+        writer.Write((byte)moduleValue["authorId"]);
+        ((NetworkText)moduleValue["text"]).OnSerialize(writer);
+        ((Color)moduleValue["color"]).OnSerialize(writer);
+    }
+    else if (Side == Side.Client)
+    {
+        writer.Write((string)moduleValue["cmdId"]);
+        writer.Write((string)moduleValue["text"]);
+    }
+}
+```
+
 #### [090]UpdateItemDrop2
 
 ##### Server <-> Client
@@ -1642,4 +1978,4 @@ Methods:
 
 
 ----
-Generate at 2020/6/10 14:35:58
+Generate at 2020/6/10 16:12:39
