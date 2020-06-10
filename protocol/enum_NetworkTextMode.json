@@ -2,13 +2,13 @@
   "desc": "",
   "args": [
     {
-      "type": "Literal"
+      "name": "Literal"
     },
     {
-      "type": "Formattable"
+      "name": "Formattable"
     },
     {
-      "type": "LocalizationKey"
+      "name": "LocalizationKey"
     }
   ]
 }

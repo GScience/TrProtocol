@@ -16,12 +16,17 @@ using System;
 namespace TrProtocol
 {{
     /// <summary>
-    /// {4}
+    /// {5}
     /// </summary>
-    public class {0} : INetObject
+    public class {0} : INetMessage
     {{
         public const int ID = $ID;
+
+        public Side Side {{ get; set; }}
+
 {1}
+
+{4}
 
         public void OnSerialize(BinaryWriter writer)
         {{
@@ -42,11 +47,13 @@ using System;
 namespace TrProtocol
 {{
     /// <summary>
-    /// {4}
+    /// {5}
     /// </summary>
     public class {0} : INetObject
     {{
 {1}
+
+{4}
 
         public void OnSerialize(BinaryWriter writer)
         {{
@@ -79,6 +86,22 @@ namespace TrProtocol
     }
 }";
 
+        public const string iNetMessageCode =
+@"using System.IO;
+using System;
+
+namespace TrProtocol
+{
+    public enum Side
+    {
+        Server, Client
+    }
+    public interface INetMessage : INetObject
+    {
+        Side Side { get; set; }
+    }
+}";
+
         public const string enumTemplate =
 @"namespace TrProtocol
 {{
@@ -87,7 +110,7 @@ namespace TrProtocol
     /// </summary>
     public enum {0}
     {{
-        {1}
+{1}
     }}
 }}";
 
@@ -95,7 +118,7 @@ namespace TrProtocol
 @"        /// <summary>
         /// {3}
         /// </summary>
-        {0},
+        {1},
 ";
 
         static void Main(string[] args)
@@ -161,9 +184,13 @@ namespace TrProtocol
                     writer.Write(code);
             }
 
-            using (var fs = File.Open(output + "/INetObjectCode.cs", FileMode.Create))
-                using (var writer = new StreamWriter(fs))
-                    writer.Write(iNetObjectCode);
+            using (var fs = File.Open(output + "/INetObject.cs", FileMode.Create))
+            using (var writer = new StreamWriter(fs))
+                writer.Write(iNetObjectCode);
+
+            using (var fs = File.Open(output + "/INetMessage.cs", FileMode.Create))
+            using (var writer = new StreamWriter(fs))
+                writer.Write(iNetMessageCode);
         }
     }
 }

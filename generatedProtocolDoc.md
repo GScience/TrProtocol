@@ -8,6 +8,8 @@
 
 
 Using default serialization method
+
+Methods: 
 #### [001]ConnectRequest
 
 ##### Server <-  Client
@@ -17,6 +19,8 @@ Using default serialization method
 | version | [string](#string) | Terraria version |
 
 Using default serialization method
+
+Methods: 
 #### [002]Disconnect
 
 ##### Server  -> Client
@@ -26,6 +30,8 @@ Using default serialization method
 | kickMsg | [NetworkText](#NetworkText) | Kick message |
 
 Using default serialization method
+
+Methods: 
 #### [003]SetUserSlot
 
 ##### Server  -> Client
@@ -35,6 +41,8 @@ Using default serialization method
 | playerId | [byte](#byte) | Remote player ID |
 
 Using default serialization method
+
+Methods: 
 #### [004]PlayerInfo
 
 ##### Server <-> Client
@@ -60,6 +68,8 @@ Using default serialization method
 | torchFlags | [BitsByte](#BitsByte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [005]PlayerInventorySlot
 
 ##### Server <-> Client
@@ -73,6 +83,8 @@ Using default serialization method
 | netId | [short](#short) | Net ID |
 
 Using default serialization method
+
+Methods: 
 #### [006]RequireWorldData
 
 ##### Server <-  Client
@@ -82,6 +94,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [007]WorldInfo
 
 ##### Server  -> Client
@@ -146,6 +160,8 @@ Using default serialization method
 | sandstormIntendedSeverity | [float](#float) | Sandstorm Intended Severity |
 
 Using default serialization method
+
+Methods: 
 #### [008]RequestEssentialTiles
 
 ##### Server <-  Client
@@ -156,6 +172,8 @@ Using default serialization method
 | y | [int](#int) | Player spawn y |
 
 Using default serialization method
+
+Methods: 
 #### [009]Status
 
 ##### Server  -> Client
@@ -167,6 +185,8 @@ Using default serialization method
 | statusTextFlags | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [010]SendSection
 
 ##### Server  -> Client
@@ -196,6 +216,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### [011]SectionTileFrame
 
 ##### Server  -> Client
@@ -208,6 +230,8 @@ throw new NotImplementedException();
 | endY | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [012]SpawnPlayer
 
 ##### Server <-  Client
@@ -221,6 +245,8 @@ Using default serialization method
 | playerSpawnContext | [PlayerSpawnContext:byte](#PlayerSpawnContext) | - |
 
 Using default serialization method
+
+Methods: 
 #### [013]UpdatePlayer
 
 ##### Server <-> Client
@@ -229,8 +255,8 @@ Using default serialization method
 | ----- | ----- | ----- |
 | playerId | [byte](#byte) | Remote player ID |
 | control | [byte](#byte) | - |
-| pulley | [byte](#byte) | - |
-| misc | [byte](#byte) | - |
+| pulley | [BitsByte](#BitsByte) | - |
+| misc | [BitsByte](#BitsByte) | - |
 | sleepingInfo | [byte](#byte) | - |
 | selectedItem | [byte](#byte) | - |
 | positionX | [float](#float) | - |
@@ -246,20 +272,20 @@ Serialization:
 ```csharp
 writer.Write(playerId);
 writer.Write(control);
-writer.Write(pulley);
-writer.Write(misc);
+pulley.OnSerialize(writer);
+misc.OnSerialize(writer);
 writer.Write(sleepingInfo);
 writer.Write(selectedItem);
 writer.Write(positionX);
 writer.Write(positionY);
 
-if (((uint)pulley & (1 << 2)) > 0U)
+if (pulley[2])
 {
     writer.Write(velocityX);
     writer.Write(velocityY);
 }
 
-if (((uint)misc & (1 << 6)) > 0U)
+if (misc[6])
 {
     writer.Write(originalPositionX);
     writer.Write(originalPositionY);
@@ -271,20 +297,20 @@ Deserialization:
 ```csharp
 playerId = reader.ReadByte();
 control = reader.ReadByte();
-pulley = reader.ReadByte();
-misc = reader.ReadByte();
+pulley.OnDeserialize(reader);
+misc.OnDeserialize(reader);
 sleepingInfo = reader.ReadByte();
 selectedItem = reader.ReadByte();
 positionX = reader.ReadSingle();
 positionY = reader.ReadSingle();
 
-if (((uint)pulley & (1 << 2)) > 0U)
+if (pulley[2])
 {
     velocityX = reader.ReadSingle();
     velocityY = reader.ReadSingle();
 }
 
-if (((uint)misc & (1 << 6)) > 0U)
+if (misc[6])
 {
     originalPositionX = reader.ReadSingle();
     originalPositionY = reader.ReadSingle();
@@ -294,6 +320,8 @@ if (((uint)misc & (1 << 6)) > 0U)
 ```
 
 
+
+Methods: 
 #### [014]PlayerActive
 
 ##### Server  -> Client
@@ -304,6 +332,8 @@ if (((uint)misc & (1 << 6)) > 0U)
 | active | [bool](#bool) | - |
 
 Using default serialization method
+
+Methods: 
 #### [015]NULL
 
 ##### Server  *  Client
@@ -313,6 +343,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [016]PlayerHP
 
 ##### Server <-> Client
@@ -324,6 +356,8 @@ Using default serialization method
 | maxHp | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [017]ModifyTile
 
 ##### Server <-> Client
@@ -337,6 +371,8 @@ Using default serialization method
 | flags2 | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [018]Time
 
 ##### Server  -> Client
@@ -349,6 +385,8 @@ Using default serialization method
 | moonModY | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [019]DoorToggle
 
 ##### Server <-> Client
@@ -361,6 +399,8 @@ Using default serialization method
 | direction | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [020]SendTileSquare
 
 ##### Server <-> Client
@@ -374,6 +414,8 @@ Using default serialization method
 | tiles | [WorldTile](#WorldTile) | - |
 
 Using default serialization method
+
+Methods: 
 #### [021]UpdateItemDrop
 
 ##### Server <-> Client
@@ -391,6 +433,8 @@ Using default serialization method
 | itemNetId | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [022]UpdateItemOwner
 
 ##### Server <-> Client
@@ -401,6 +445,8 @@ Using default serialization method
 | playerId | [byte](#byte) | Remote player ID |
 
 Using default serialization method
+
+Methods: 
 #### [023]NPCUpdate
 
 ##### Server  -> Client
@@ -413,26 +459,102 @@ Using default serialization method
 | velocityX | [float](#float) | - |
 | velocityY | [float](#float) | - |
 | target | [ushort](#ushort) | Player ID |
-| npcFlags1 | [byte](#byte) | - |
-| npcFlags2 | [byte](#byte) | - |
-| ai | [AI](#AI) | - |
+| npcFlags1 | [BitsByte](#BitsByte) | - |
+| npcFlags2 | [BitsByte](#BitsByte) | - |
+| ai | [float[4]](#float) | - |
 | npcNetID | [short](#short) | - |
 | playerCountForMultiplayerDifficultyOverride | [byte](#byte) | - |
 | strengthMultiplier | [float](#float) | - |
 | lifeBytes | [byte](#byte) | - |
-| life | [Variable](#Variable) | - |
-| releaseOwner | [Byte](#Byte) | - |
+| life | [int](#int) | - |
+| releaseOwner | [byte](#byte) | - |
+| catchable | [bool](#bool) | - |
 
 Serialization: 
 ```csharp
-throw new NotImplementedException();
+writer.Write(npcId);
+writer.Write(positionX);
+writer.Write(positionY);
+writer.Write(velocityX);
+writer.Write(velocityY);
+writer.Write(target);
+npcFlags1.OnSerialize(writer);
+npcFlags2.OnSerialize(writer);
+for (var i = 0; i < 4; ++i)
+    if (npcFlags1[i + 2])
+        writer.Write(ai[i]);
+writer.Write(npcNetID);
+if (npcFlags2[0])
+    writer.Write(playerCountForMultiplayerDifficultyOverride);
+if (npcFlags2[2])
+    writer.Write(strengthMultiplier);
+if (!npcFlags1[7])
+{
+    writer.Write(lifeBytes);
+    switch (lifeBytes)
+    {
+        case 2:
+            writer.Write((short)life);
+            break;
+        case 4:
+            writer.Write(life);
+            break;
+        default:
+            writer.Write((sbyte)life);
+            break;
+    }
+}
+if (catchable)
+    writer.Write(releaseOwner);
 ```
 Deserialization: 
 ```csharp
-throw new NotImplementedException();
+npcId = reader.ReadInt16();
+positionX = reader.ReadSingle();
+positionY = reader.ReadSingle();
+velocityX = reader.ReadSingle();
+velocityY = reader.ReadSingle();
+target = reader.ReadUInt16();
+npcFlags1.OnDeserialize(reader);
+npcFlags2.OnDeserialize(reader);
+for (var i = 0; i < 4; ++i)
+    if (npcFlags1[i + 2])
+        ai[i] = reader.ReadSingle();
+npcNetID = reader.ReadInt16();
+if (npcFlags2[0])
+    playerCountForMultiplayerDifficultyOverride = reader.ReadByte();
+if (npcFlags2[2])
+    strengthMultiplier = reader.ReadSingle();
+if (!npcFlags1[7])
+{
+    lifeBytes = reader.ReadByte();
+    switch (lifeBytes)
+    {
+        case 2:
+            life = reader.ReadInt16();
+            break;
+        case 4:
+            life = reader.ReadInt32();
+            break;
+        default:
+            life = reader.ReadSByte();
+            break;
+    }
+}
+try
+{
+    releaseOwner = reader.ReadByte();
+    catchable = true;
+}
+catch (EndOfStreamException)
+{
+    catchable = false;
+}
 ```
 
 
+
+Methods: 
 #### [024]StrikeNPCWithHeldItem
 
 ##### Server <-> Client
@@ -443,6 +565,8 @@ throw new NotImplementedException();
 |  playerId | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [025]NULL
 
 ##### Server  *  Client
@@ -452,6 +576,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [026]NULL
 
 ##### Server  *  Client
@@ -461,6 +587,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [027]ProjectileUpdate
 
 ##### Server <-> Client
@@ -492,6 +620,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### [028]NPCStrike
 
 ##### Server <-> Client
@@ -505,6 +635,8 @@ throw new NotImplementedException();
 | cirt | [bool](#bool) | - |
 
 Using default serialization method
+
+Methods: 
 #### [029]DestroyProjectile
 
 ##### Server <-> Client
@@ -515,6 +647,8 @@ Using default serialization method
 | owner | [byte](#byte) | Player ID |
 
 Using default serialization method
+
+Methods: 
 #### [030]TogglePVP
 
 ##### Server <-> Client
@@ -525,6 +659,8 @@ Using default serialization method
 | pvpEnabled | [bool](#bool) | - |
 
 Using default serialization method
+
+Methods: 
 #### [031]OpenChest
 
 ##### Server <-> Client
@@ -535,6 +671,8 @@ Using default serialization method
 | tileY | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [032]UpdateChestItem
 
 ##### Server <-> Client
@@ -548,6 +686,8 @@ Using default serialization method
 | itemNetId | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [033]SyncActiveChest
 
 ##### Server <-> Client
@@ -561,6 +701,8 @@ Using default serialization method
 | chestName | [string](#string) | - |
 
 Using default serialization method
+
+Methods: 
 #### [034]PlaceChest
 
 ##### Server <-> Client
@@ -574,6 +716,8 @@ Using default serialization method
 | chestIdToDestroy | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [035]HealEffect
 
 ##### Server <-> Client
@@ -584,6 +728,8 @@ Using default serialization method
 | healAmount | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [036]PlayerZone
 
 ##### Server <-> Client
@@ -597,6 +743,8 @@ Using default serialization method
 | zoneFlags4 | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [037]RequestPassword
 
 ##### Server  -> Client
@@ -606,6 +754,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [038]SendPassword
 
 ##### Server <-  Client
@@ -615,6 +765,8 @@ Using default serialization method
 | password | [string](#string) | - |
 
 Using default serialization method
+
+Methods: 
 #### [039]RemoveItemOwner
 
 ##### Server  -> Client
@@ -624,6 +776,8 @@ Using default serialization method
 | itemIndex | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [040]SetActiveNPC
 
 ##### Server <-> Client
@@ -634,6 +788,8 @@ Using default serialization method
 | npcTalkTarget | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [041]PlayerItemAnimation
 
 ##### Server <-> Client
@@ -645,6 +801,8 @@ Using default serialization method
 | itemAnimation | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [042]PlayerMana
 
 ##### Server <-> Client
@@ -656,6 +814,8 @@ Using default serialization method
 | maxMana | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [043]ManaEffect
 
 ##### Server <-> Client
@@ -666,6 +826,8 @@ Using default serialization method
 | manaAmount | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [044]NULL
 
 ##### Server  *  Client
@@ -675,6 +837,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [045]PlayerTeam
 
 ##### Server <-> Client
@@ -685,6 +849,8 @@ Using default serialization method
 | team | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [046]RequestSign
 
 ##### Server <-  Client
@@ -695,6 +861,8 @@ Using default serialization method
 | y | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [047]UpdateSign
 
 ##### Server <-> Client
@@ -709,6 +877,8 @@ Using default serialization method
 | signFlags | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [048]SetLiquid
 
 ##### Server <-> Client
@@ -721,6 +891,8 @@ Using default serialization method
 | liquidType | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [049]CompleteConnectionAndSpawn
 
 ##### Server  -> Client
@@ -730,6 +902,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [050]UpdatePlayerBuff
 
 ##### Server <-> Client
@@ -740,6 +914,8 @@ Using default serialization method
 | buffType | [ushort[22]](#ushort) | - |
 
 Using default serialization method
+
+Methods: 
 #### [051]SpecialNPCEffect
 
 ##### Server <-> Client
@@ -750,6 +926,8 @@ Using default serialization method
 | type | [SpecialNPCEffectType:byte](#SpecialNPCEffectType) | - |
 
 Using default serialization method
+
+Methods: 
 #### [052]Unlock
 
 ##### Server <-> Client
@@ -761,6 +939,8 @@ Using default serialization method
 | y | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [053]AddNPCBuff
 
 ##### Server <-> Client
@@ -772,6 +952,8 @@ Using default serialization method
 | time | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [054]UpdateNPCBuff
 
 ##### Server <-> Client
@@ -791,6 +973,8 @@ Using default serialization method
 | time5 | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [055]AddPlayerBuff
 
 ##### Server <-> Client
@@ -802,6 +986,8 @@ Using default serialization method
 | time | [int](#int) | - |
 
 Using default serialization method
+
+Methods: 
 #### [056]UpdateNPCName
 
 ##### Server <-> Client
@@ -814,14 +1000,40 @@ Using default serialization method
 
 Serialization: 
 ```csharp
-throw new NotImplementedException();
+writer.Write(npcId);
+if (Side == Side.Client)
+{
+}
+else if (Side == Side.Server)
+{
+    writer.Write(name);
+    writer.Write(townNpcVariationIndex);
+}
+else
+{
+    throw new Exception("Unknown side");
+}
 ```
 Deserialization: 
 ```csharp
-throw new NotImplementedException();
+npcId = reader.ReadInt16();
+if (Side == Side.Client)
+{
+}
+else if (Side == Side.Server)
+{
+    name = reader.ReadString();
+    townNpcVariationIndex = reader.ReadInt32();
+}
+else
+{
+    throw new Exception("Unknown side");
+}
 ```
 
 
+
+Methods: 
 #### [057]UpdateGoodEvil
 
 ##### Server  -> Client
@@ -833,6 +1045,8 @@ throw new NotImplementedException();
 | crimson | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [058]PlayMusicItem
 
 ##### Server <-> Client
@@ -843,6 +1057,8 @@ Using default serialization method
 | note | [float](#float) | - |
 
 Using default serialization method
+
+Methods: 
 #### [059]HitSwitch
 
 ##### Server <-> Client
@@ -853,6 +1069,8 @@ Using default serialization method
 | y | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [060]NPCHomeUpdate
 
 ##### Server <-> Client
@@ -865,6 +1083,8 @@ Using default serialization method
 | homeless | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [061]SpawnBoxxInvasion
 
 ##### Server <-> Client
@@ -875,6 +1095,8 @@ Using default serialization method
 | type | [SpawnBossInvasionType:short](#SpawnBossInvasionType) | - |
 
 Using default serialization method
+
+Methods: 
 #### [062]PlayerDodge
 
 ##### Server <-> Client
@@ -885,6 +1107,8 @@ Using default serialization method
 | flag | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [063]PaintTile
 
 ##### Server <-> Client
@@ -896,6 +1120,8 @@ Using default serialization method
 | color | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [064]PaintWall
 
 ##### Server <-> Client
@@ -907,6 +1133,8 @@ Using default serialization method
 | color | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [065]PlayerNPCTeleport
 
 ##### Server <-> Client
@@ -930,6 +1158,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### [066]HealOtherPlayer
 
 ##### Server <-> Client
@@ -940,6 +1170,8 @@ throw new NotImplementedException();
 | healAmount | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [067]Placeholder
 
 ##### Server  *  Client
@@ -949,6 +1181,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [068]ClientUUID
 
 ##### Server <-  Client
@@ -958,6 +1192,8 @@ Using default serialization method
 | uuid | [string](#string) | - |
 
 Using default serialization method
+
+Methods: 
 #### [069]GetChestName
 
 ##### Server <-  Client
@@ -970,6 +1206,8 @@ Using default serialization method
 | name | [string](#string) | - |
 
 Using default serialization method
+
+Methods: 
 #### [070]CatchNPC
 
 ##### Server <-  Client
@@ -980,6 +1218,8 @@ Using default serialization method
 | playerId | [byte](#byte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [071]ReleaseNPC
 
 ##### Server <-  Client
@@ -992,6 +1232,8 @@ Using default serialization method
 | style | [byte](#byte) | Sent to NPC AI[2] |
 
 Using default serialization method
+
+Methods: 
 #### [072]TravellingMerchantInventory
 
 ##### Server  -> Client
@@ -1001,6 +1243,8 @@ Using default serialization method
 | items | [short[40]](#short) | Each short related to an item type NetID. |
 
 Using default serialization method
+
+Methods: 
 #### [073]TeleportationPotion
 
 ##### Server <-> Client
@@ -1010,6 +1254,8 @@ Using default serialization method
 | type | [TeleportationPotionType:byte](#TeleportationPotionType) | - |
 
 Using default serialization method
+
+Methods: 
 #### [074]AnglerQuest
 
 ##### Server  -> Client
@@ -1020,6 +1266,8 @@ Using default serialization method
 | completed | [bool](#bool) | - |
 
 Using default serialization method
+
+Methods: 
 #### [075]CompleteAnglerQuestToday
 
 ##### Server <-  Client
@@ -1029,6 +1277,8 @@ Using default serialization method
 
 
 Using default serialization method
+
+Methods: 
 #### [076]NumberOfAnglerQuestsCompleted
 
 ##### Server <-  Client
@@ -1040,6 +1290,8 @@ Using default serialization method
 | golferScore | [int](#int) | - |
 
 Using default serialization method
+
+Methods: 
 #### [077]CreateTemporaryAnimation
 
 ##### Server  -> Client
@@ -1052,6 +1304,8 @@ Using default serialization method
 | y | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [078]ReportInvasionProgress
 
 ##### Server  -> Client
@@ -1064,6 +1318,8 @@ Using default serialization method
 | wave | [sbyte](#sbyte) | - |
 
 Using default serialization method
+
+Methods: 
 #### [079]PlaceObject
 
 ##### Server <-> Client
@@ -1078,6 +1334,8 @@ Using default serialization method
 | direction | [bool](#bool) | - |
 
 Using default serialization method
+
+Methods: 
 #### [080]SyncPlayerChestIndex
 
 ##### Server  -> Client
@@ -1088,6 +1346,8 @@ Using default serialization method
 | chest | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 #### [090]UpdateItemDrop2
 
 ##### Server <-> Client
@@ -1105,133 +1365,119 @@ Using default serialization method
 | itemNetId | [short](#short) | - |
 
 Using default serialization method
+
+Methods: 
 ### Inner enum definations
 #### DoorToggleAction
 
 | value | description |
 | ----- | ----- |
-| [OpenDoor](#OpenDoor) | - |
-| [CloseDoor](#CloseDoor) | - |
-| [OpenTrapdoor](#OpenTrapdoor) | - |
-| [CloseTrapdoor](#CloseTrapdoor) | - |
-| [OpenTallGate](#OpenTallGate) | - |
-| [CloseTallGate](#CloseTallGate) | - |
+| OpenDoor | - |
+| CloseDoor | - |
+| OpenTrapdoor | - |
+| CloseTrapdoor | - |
+| OpenTallGate | - |
+| CloseTallGate | - |
 
 #### ModifyTileAction
 
 | value | description |
 | ----- | ----- |
-| [KillTile](#KillTile) | - |
-| [PlaceTile](#PlaceTile) | - |
-| [KillWall](#KillWall) | - |
-| [PlaceWall](#PlaceWall) | - |
-| [KillTileNoItem](#KillTileNoItem) | - |
-| [PlaceWire](#PlaceWire) | - |
-| [KillWire](#KillWire) | - |
-| [PoundTile](#PoundTile) | - |
-| [PlaceActuator](#PlaceActuator) | - |
-| [KillActuator](#KillActuator) | - |
-| [PlaceWire2](#PlaceWire2) | - |
-| [KillWire2](#KillWire2) | - |
-| [PlaceWire3](#PlaceWire3) | - |
-| [KillWire3](#KillWire3) | - |
-| [SlopeTile](#SlopeTile) | - |
-| [FrameTrack](#FrameTrack) | - |
-| [PlaceWire4](#PlaceWire4) | - |
-| [KillWire4](#KillWire4) | - |
-| [PokeLogicGate](#PokeLogicGate) | - |
-| [Actuate](#Actuate) | - |
-| [KillTile2](#KillTile2) | - |
-| [ReplaceTile](#ReplaceTile) | - |
-| [ReplaceWall](#ReplaceWall) | - |
-| [SlopePoundTile](#SlopePoundTile) | - |
+| KillTile | - |
+| PlaceTile | - |
+| KillWall | - |
+| PlaceWall | - |
+| KillTileNoItem | - |
+| PlaceWire | - |
+| KillWire | - |
+| PoundTile | - |
+| PlaceActuator | - |
+| KillActuator | - |
+| PlaceWire2 | - |
+| KillWire2 | - |
+| PlaceWire3 | - |
+| KillWire3 | - |
+| SlopeTile | - |
+| FrameTrack | - |
+| PlaceWire4 | - |
+| KillWire4 | - |
+| PokeLogicGate | - |
+| Actuate | - |
+| KillTile2 | - |
+| ReplaceTile | - |
+| ReplaceWall | - |
+| SlopePoundTile | - |
 
 #### NetworkTextMode
 
 | value | description |
 | ----- | ----- |
-| [Literal](#Literal) | - |
-| [Formattable](#Formattable) | - |
-| [LocalizationKey](#LocalizationKey) | - |
+| Literal | - |
+| Formattable | - |
+| LocalizationKey | - |
 
 #### PlaceChestAction
 
 | value | description |
 | ----- | ----- |
-| [PlaceChest](#PlaceChest) | - |
-| [KillChest](#KillChest) | - |
-| [PlaceDresser](#PlaceDresser) | - |
-| [KillDresser](#KillDresser) | - |
-| [PlaceContainers2](#PlaceContainers2) | - |
-| [Killontainers2](#Killontainers2) | - |
+| PlaceChest | - |
+| KillChest | - |
+| PlaceDresser | - |
+| KillDresser | - |
+| PlaceContainers2 | - |
+| Killontainers2 | - |
 
 #### PlayerSpawnContext
 
 | value | description |
 | ----- | ----- |
-| [ReviveFromDeath](#ReviveFromDeath) | - |
-| [SpawningIntoWorld](#SpawningIntoWorld) | - |
-| [RecallFromItem](#RecallFromItem) | - |
+| ReviveFromDeath | - |
+| SpawningIntoWorld | - |
+| RecallFromItem | - |
 
 #### SpawnBossInvasionType
 
 | value | description |
 | ----- | ----- |
-| [GoblinInvasion = -1](#GoblinInvasion = -1) | - |
-| [FrostInvasion = -2](#FrostInvasion = -2) | - |
-| [PirateInvasion = -3](#PirateInvasion = -3) | - |
-| [PumpkinMoon = -4](#PumpkinMoon = -4) | - |
-| [SnowMoon = -5](#SnowMoon = -5) | - |
-| [Eclipse = -6](#Eclipse = -6) | - |
-| [MartianMoon = -7](#MartianMoon = -7) | - |
-| [ImpendingDoom = -8](#ImpendingDoom = -8) | - |
-| [BloodMoon = -10](#BloodMoon = -10) | - |
-| [CombatBookUsed = -11](#CombatBookUsed = -11) | - |
-| [BoughtCat = -12](#BoughtCat = -12) | - |
-| [BoughtDog = -13](#BoughtDog = -13) | - |
-| [BoughtBunny = -14](#BoughtBunny = -14) | - |
+| GoblinInvasion  | - |
+| FrostInvasion  | - |
+| PirateInvasion  | - |
+| PumpkinMoon  | - |
+| SnowMoon  | - |
+| Eclipse  | - |
+| MartianMoon  | - |
+| ImpendingDoom  | - |
+| BloodMoon  | - |
+| CombatBookUsed  | - |
+| BoughtCat  | - |
+| BoughtDog  | - |
+| BoughtBunny  | - |
 
 #### SpecialNPCEffectType
 
 | value | description |
 | ----- | ----- |
-| [SpawnSkeletron](#SpawnSkeletron) | - |
-| [CauseSoundAtPlayer](#CauseSoundAtPlayer) | - |
-| [StartSundialing](#StartSundialing) | - |
-| [BigMimcSpawnSmoke](#BigMimcSpawnSmoke) | - |
+| SpawnSkeletron | - |
+| CauseSoundAtPlayer | - |
+| StartSundialing | - |
+| BigMimcSpawnSmoke | - |
 
 #### TeleportationPotionType
 
 | value | description |
 | ----- | ----- |
-| [TeleportationPotion](#TeleportationPotion) | - |
-| [MagicConch](#MagicConch) | - |
-| [DemonConch](#DemonConch) | - |
+| TeleportationPotion | - |
+| MagicConch | - |
+| DemonConch | - |
 
 #### UnlockType
 
 | value | description |
 | ----- | ----- |
-| [ChestUnlock](#ChestUnlock) | - |
-| [DoorUnlock](#DoorUnlock) | - |
+| ChestUnlock | - |
+| DoorUnlock | - |
 
 ### Inner type definations
-#### AI
-
-| field | type | description |
-| ----- | ----- | ----- |
-
-
-Serialization: 
-```csharp
-throw new NotImplementedException();
-```
-Deserialization: 
-```csharp
-throw new NotImplementedException();
-```
-
-
 #### BitsByte
 
 | field | type | description |
@@ -1239,6 +1485,25 @@ throw new NotImplementedException();
 | data | [byte](#byte) | Data |
 
 Using default serialization method
+
+Methods: 
+```csharp
+public bool this[int key]
+{
+    get
+    {
+        return ((uint)data & (uint)(1 << key)) > 0U;
+    }
+    set
+    {
+        if (value)
+            data |= (byte)(1 << key);
+        else
+            data &= (byte)~(1 << key);
+    }
+}
+```
+
 #### Chest
 
 | field | type | description |
@@ -1255,6 +1520,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### Color
 
 | field | type | description |
@@ -1264,6 +1531,8 @@ throw new NotImplementedException();
 | b | [byte](#byte) | Red |
 
 Using default serialization method
+
+Methods: 
 #### Entity
 
 | field | type | description |
@@ -1280,6 +1549,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### NetworkText
 
 | field | type | description |
@@ -1313,6 +1584,8 @@ for (int index = 0; index < substitution.Length; ++index)
 ```
 
 
+
+Methods: 
 #### Sign
 
 | field | type | description |
@@ -1329,6 +1602,8 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
 #### Tile
 
 | field | type | description |
@@ -1344,22 +1619,8 @@ throw new NotImplementedException();
 | frameY | [short](#short) | - |
 
 Using default serialization method
-#### Variable
 
-| field | type | description |
-| ----- | ----- | ----- |
-
-
-Serialization: 
-```csharp
-throw new NotImplementedException();
-```
-Deserialization: 
-```csharp
-throw new NotImplementedException();
-```
-
-
+Methods: 
 #### WorldTile
 
 | field | type | description |
@@ -1376,5 +1637,9 @@ throw new NotImplementedException();
 ```
 
 
+
+Methods: 
+
+
 ----
-Generate at 2020/6/10 1:52:17
+Generate at 2020/6/10 14:35:58

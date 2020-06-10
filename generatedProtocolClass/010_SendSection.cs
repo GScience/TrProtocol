@@ -6,46 +6,62 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg10SendSection : INetObject
+    public class Msg10SendSection : INetMessage
     {
         public const int ID = 10;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Terraria version
         /// </summary>
-        public bool compressed = default(bool);        /// <summary>
+        public bool compressed = default(bool);
+        /// <summary>
         /// 
         /// </summary>
-        public int xStart = default(int);        /// <summary>
+        public int xStart = default(int);
+        /// <summary>
         /// 
         /// </summary>
-        public int yStart = default(int);        /// <summary>
+        public int yStart = default(int);
+        /// <summary>
         /// 
         /// </summary>
-        public short width = default(short);        /// <summary>
+        public short width = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public short height = default(short);        /// <summary>
+        public short height = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public WorldTile tiles = new WorldTile();        /// <summary>
+        public WorldTile tiles = new WorldTile();
+        /// <summary>
         /// 
         /// </summary>
-        public short chestCount = default(short);        /// <summary>
+        public short chestCount = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public Chest chests = new Chest();        /// <summary>
+        public Chest chests = new Chest();
+        /// <summary>
         /// 
         /// </summary>
-        public short signCount = default(short);        /// <summary>
+        public short signCount = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public Sign signs = new Sign();        /// <summary>
+        public Sign signs = new Sign();
+        /// <summary>
         /// 
         /// </summary>
-        public short tileEntityCount = default(short);        /// <summary>
+        public short tileEntityCount = default(short);
+        /// <summary>
         /// 
         /// </summary>
         public Entity tileEntities = new Entity();
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

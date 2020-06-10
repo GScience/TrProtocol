@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg28NPCStrike : INetObject
+    public class Msg28NPCStrike : INetMessage
     {
         public const int ID = 28;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public bool cirt = default(bool);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

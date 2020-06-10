@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg75CompleteAnglerQuestToday : INetObject
+    public class Msg75CompleteAnglerQuestToday : INetMessage
     {
         public const int ID = 75;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

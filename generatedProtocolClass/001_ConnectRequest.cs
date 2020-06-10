@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg1ConnectRequest : INetObject
+    public class Msg1ConnectRequest : INetMessage
     {
         public const int ID = 1;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Terraria version
         /// </summary>
         public string version = default(string);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

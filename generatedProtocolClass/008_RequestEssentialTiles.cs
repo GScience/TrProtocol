@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// This packet is used once in the connecting phase and does the following:\n1.Sends you the spawn section\n2.Optionally, if spawn coords aren't -1 - sends you the sections of the selected position (which is the player's spawnpoint)\nSynchronises all portals and sections around them
     /// </summary>
-    public class Msg8RequestEssentialTiles : INetObject
+    public class Msg8RequestEssentialTiles : INetMessage
     {
         public const int ID = 8;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Player spawn x
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// Player spawn y
         /// </summary>
         public int y = default(int);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

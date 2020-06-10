@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg16PlayerHP : INetObject
+    public class Msg16PlayerHP : INetMessage
     {
         public const int ID = 16;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short maxHp = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

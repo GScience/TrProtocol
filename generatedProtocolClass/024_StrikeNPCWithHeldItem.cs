@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg24StrikeNPCWithHeldItem : INetObject
+    public class Msg24StrikeNPCWithHeldItem : INetMessage
     {
         public const int ID = 24;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte  playerId = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

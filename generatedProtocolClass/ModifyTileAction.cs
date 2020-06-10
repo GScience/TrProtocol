@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum ModifyTileAction
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         KillTile,
@@ -128,4 +128,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 23:58:03
+//Json file changed at 2020/6/10 13:10:03

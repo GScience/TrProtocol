@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg53AddNPCBuff : INetObject
+    public class Msg53AddNPCBuff : INetMessage
     {
         public const int ID = 53;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short time = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

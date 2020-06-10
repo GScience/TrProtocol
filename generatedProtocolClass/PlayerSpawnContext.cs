@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum PlayerSpawnContext
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         ReviveFromDeath,
@@ -23,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 21:49:00
+//Json file changed at 2020/6/10 13:10:20

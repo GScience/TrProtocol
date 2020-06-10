@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg37RequestPassword : INetObject
+    public class Msg37RequestPassword : INetMessage
     {
         public const int ID = 37;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

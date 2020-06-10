@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg18Time : INetObject
+    public class Msg18Time : INetMessage
     {
         public const int ID = 18;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short moonModY = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

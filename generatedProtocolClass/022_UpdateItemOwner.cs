@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg22UpdateItemOwner : INetObject
+    public class Msg22UpdateItemOwner : INetMessage
     {
         public const int ID = 22;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// Remote player ID
         /// </summary>
         public byte playerId = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

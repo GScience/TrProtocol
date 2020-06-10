@@ -13,6 +13,8 @@ namespace TrProtocol
         /// </summary>
         public Tile tile = new Tile();
 
+
+
         public void OnSerialize(BinaryWriter writer)
         {
             throw new NotImplementedException();

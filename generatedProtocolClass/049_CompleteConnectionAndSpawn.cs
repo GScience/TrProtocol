@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg49CompleteConnectionAndSpawn : INetObject
+    public class Msg49CompleteConnectionAndSpawn : INetMessage
     {
         public const int ID = 49;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

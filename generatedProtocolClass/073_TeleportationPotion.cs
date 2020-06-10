@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg73TeleportationPotion : INetObject
+    public class Msg73TeleportationPotion : INetMessage
     {
         public const int ID = 73;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         public TeleportationPotionType type = default(TeleportationPotionType);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

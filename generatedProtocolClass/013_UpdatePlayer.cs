@@ -6,71 +6,89 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg13UpdatePlayer : INetObject
+    public class Msg13UpdatePlayer : INetMessage
     {
         public const int ID = 13;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
-        public byte playerId = default(byte);        /// <summary>
+        public byte playerId = default(byte);
+        /// <summary>
         /// 
         /// </summary>
-        public byte control = default(byte);        /// <summary>
+        public byte control = default(byte);
+        /// <summary>
         /// 
         /// </summary>
-        public byte pulley = default(byte);        /// <summary>
+        public BitsByte pulley = new BitsByte();
+        /// <summary>
         /// 
         /// </summary>
-        public byte misc = default(byte);        /// <summary>
+        public BitsByte misc = new BitsByte();
+        /// <summary>
         /// 
         /// </summary>
-        public byte sleepingInfo = default(byte);        /// <summary>
+        public byte sleepingInfo = default(byte);
+        /// <summary>
         /// 
         /// </summary>
-        public byte selectedItem = default(byte);        /// <summary>
+        public byte selectedItem = default(byte);
+        /// <summary>
         /// 
         /// </summary>
-        public float positionX = default(float);        /// <summary>
+        public float positionX = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float positionY = default(float);        /// <summary>
+        public float positionY = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float velocityX = default(float);        /// <summary>
+        public float velocityX = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float velocityY = default(float);        /// <summary>
+        public float velocityY = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float originalPositionX = default(float);        /// <summary>
+        public float originalPositionX = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float originalPositionY = default(float);        /// <summary>
+        public float originalPositionY = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float homePositionX = default(float);        /// <summary>
+        public float homePositionX = default(float);
+        /// <summary>
         /// 
         /// </summary>
         public float homePositionY = default(float);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write(playerId);
             writer.Write(control);
-            writer.Write(pulley);
-            writer.Write(misc);
+            pulley.OnSerialize(writer);
+            misc.OnSerialize(writer);
             writer.Write(sleepingInfo);
             writer.Write(selectedItem);
             writer.Write(positionX);
             writer.Write(positionY);
             
-            if (((uint)pulley & (1 << 2)) > 0U)
+            if (pulley[2])
             {
                 writer.Write(velocityX);
                 writer.Write(velocityY);
             }
             
-            if (((uint)misc & (1 << 6)) > 0U)
+            if (misc[6])
             {
                 writer.Write(originalPositionX);
                 writer.Write(originalPositionY);
@@ -83,20 +101,20 @@ namespace TrProtocol
         {
             playerId = reader.ReadByte();
             control = reader.ReadByte();
-            pulley = reader.ReadByte();
-            misc = reader.ReadByte();
+            pulley.OnDeserialize(reader);
+            misc.OnDeserialize(reader);
             sleepingInfo = reader.ReadByte();
             selectedItem = reader.ReadByte();
             positionX = reader.ReadSingle();
             positionY = reader.ReadSingle();
             
-            if (((uint)pulley & (1 << 2)) > 0U)
+            if (pulley[2])
             {
                 velocityX = reader.ReadSingle();
                 velocityY = reader.ReadSingle();
             }
             
-            if (((uint)misc & (1 << 6)) > 0U)
+            if (misc[6])
             {
                 originalPositionX = reader.ReadSingle();
                 originalPositionY = reader.ReadSingle();
@@ -107,4 +125,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/10 0:40:27
+//Json file changed at 2020/6/10 14:19:55

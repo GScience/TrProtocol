@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg67Placeholder : INetObject
+    public class Msg67Placeholder : INetMessage
     {
         public const int ID = 67;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

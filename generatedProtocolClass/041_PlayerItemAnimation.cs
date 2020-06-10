@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg41PlayerItemAnimation : INetObject
+    public class Msg41PlayerItemAnimation : INetMessage
     {
         public const int ID = 41;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short itemAnimation = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum TeleportationPotionType
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         TeleportationPotion,
@@ -23,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 23:18:44
+//Json file changed at 2020/6/10 13:10:43

@@ -6,30 +6,61 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg56UpdateNPCName : INetObject
+    public class Msg56UpdateNPCName : INetMessage
     {
         public const int ID = 56;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
-        public short npcId = default(short);        /// <summary>
+        public short npcId = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public string name = default(string);        /// <summary>
+        public string name = default(string);
+        /// <summary>
         /// 
         /// </summary>
         public int townNpcVariationIndex = default(int);
 
+
+
         public void OnSerialize(BinaryWriter writer)
         {
-            throw new NotImplementedException();
+            writer.Write(npcId);
+            if (Side == Side.Client)
+            {
+            }
+            else if (Side == Side.Server)
+            {
+                writer.Write(name);
+                writer.Write(townNpcVariationIndex);
+            }
+            else
+            {
+                throw new Exception("Unknown side");
+            }
         }
 
         public void OnDeserialize(BinaryReader reader)
         {
-            throw new NotImplementedException();
+            npcId = reader.ReadInt16();
+            if (Side == Side.Client)
+            {
+            }
+            else if (Side == Side.Server)
+            {
+                name = reader.ReadString();
+                townNpcVariationIndex = reader.ReadInt32();
+            }
+            else
+            {
+                throw new Exception("Unknown side");
+            }
         }
     }
 }
 
-//Json file changed at 2020/6/10 1:50:43
+//Json file changed at 2020/6/10 13:24:17

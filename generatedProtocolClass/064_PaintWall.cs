@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg64PaintWall : INetObject
+    public class Msg64PaintWall : INetMessage
     {
         public const int ID = 64;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte color = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

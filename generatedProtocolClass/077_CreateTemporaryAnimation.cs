@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg77CreateTemporaryAnimation : INetObject
+    public class Msg77CreateTemporaryAnimation : INetMessage
     {
         public const int ID = 77;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short y = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

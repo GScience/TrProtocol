@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg26NULL : INetObject
+    public class Msg26NULL : INetMessage
     {
         public const int ID = 26;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

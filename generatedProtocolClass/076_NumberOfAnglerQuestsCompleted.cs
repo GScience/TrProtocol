@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg76NumberOfAnglerQuestsCompleted : INetObject
+    public class Msg76NumberOfAnglerQuestsCompleted : INetMessage
     {
         public const int ID = 76;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public int golferScore = default(int);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

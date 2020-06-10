@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg36PlayerZone : INetObject
+    public class Msg36PlayerZone : INetMessage
     {
         public const int ID = 36;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte zoneFlags4 = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

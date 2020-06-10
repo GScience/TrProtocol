@@ -2,13 +2,13 @@
   "desc": "",
   "args": [
     {
-      "type": "TeleportationPotion"
+      "name": "TeleportationPotion"
     },
     {
-      "type": "MagicConch"
+      "name": "MagicConch"
     },
     {
-      "type": "DemonConch"
+      "name": "DemonConch"
     }
   ]
 }

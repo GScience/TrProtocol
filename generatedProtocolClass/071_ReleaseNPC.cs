@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg71ReleaseNPC : INetObject
+    public class Msg71ReleaseNPC : INetMessage
     {
         public const int ID = 71;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// Sent to NPC AI[2]
         /// </summary>
         public byte style = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

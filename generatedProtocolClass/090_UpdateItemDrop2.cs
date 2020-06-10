@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg90UpdateItemDrop2 : INetObject
+    public class Msg90UpdateItemDrop2 : INetMessage
     {
         public const int ID = 90;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// If below 400 and NetID 0 Then Set NullIf ItemID is 400 Then New Item
         /// </summary>
@@ -45,6 +48,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short itemNetId = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

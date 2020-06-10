@@ -13,6 +13,21 @@ namespace TrProtocol
         /// </summary>
         public byte data = default(byte);
 
+        public bool this[int key]
+        {
+            get
+            {
+                return ((uint)data & (uint)(1 << key)) > 0U;
+            }
+            set
+            {
+                if (value)
+                    data |= (byte)(1 << key);
+                else
+                    data &= (byte)~(1 << key);
+            }
+        }
+
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write(data);
@@ -25,4 +40,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 16:36:51
+//Json file changed at 2020/6/10 14:01:42

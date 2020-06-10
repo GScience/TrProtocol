@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum NetworkTextMode
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         Literal,
@@ -23,4 +23,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/10 1:07:34
+//Json file changed at 2020/6/10 13:10:10

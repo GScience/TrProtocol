@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg42PlayerMana : INetObject
+    public class Msg42PlayerMana : INetMessage
     {
         public const int ID = 42;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short maxMana = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

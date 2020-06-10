@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg68ClientUUID : INetObject
+    public class Msg68ClientUUID : INetMessage
     {
         public const int ID = 68;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         public string uuid = default(string);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

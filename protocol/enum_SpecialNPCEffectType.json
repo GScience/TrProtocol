@@ -2,16 +2,16 @@
   "desc": "",
   "args": [
     {
-      "type": "SpawnSkeletron"
+      "name": "SpawnSkeletron"
     },
     {
-      "type": "CauseSoundAtPlayer"
+      "name": "CauseSoundAtPlayer"
     },
     {
-      "type": "StartSundialing"
+      "name": "StartSundialing"
     },
     {
-      "type": "BigMimcSpawnSmoke"
+      "name": "BigMimcSpawnSmoke"
     }
   ]
 }

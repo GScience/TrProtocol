@@ -2,10 +2,10 @@
   "desc": "",
   "args": [
     {
-      "type": "ChestUnlock"
+      "name": "ChestUnlock"
     },
     {
-      "type": "DoorUnlock"
+      "name": "DoorUnlock"
     }
   ]
 }

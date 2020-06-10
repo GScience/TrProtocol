@@ -6,5 +6,8 @@
       "desc": "Data",
       "type": "byte"
     }
+  ],
+  "functions": [
+  	"public bool this[int key]\n{\n    get\n    {\n        return ((uint)data & (uint)(1 << key)) > 0U;\n    }\n    set\n    {\n        if (value)\n            data |= (byte)(1 << key);\n        else\n            data &= (byte)~(1 << key);\n    }\n}"
   ]
 }

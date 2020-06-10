@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg2Disconnect : INetObject
+    public class Msg2Disconnect : INetMessage
     {
         public const int ID = 2;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Kick message
         /// </summary>
         public NetworkText kickMsg = new NetworkText();
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

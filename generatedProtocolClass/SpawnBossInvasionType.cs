@@ -5,72 +5,72 @@ namespace TrProtocol
     /// </summary>
     public enum SpawnBossInvasionType
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
-        GoblinInvasion=-1,
+        GoblinInvasion = -1,
 
         /// <summary>
         /// 
         /// </summary>
-        FrostInvasion=-2,
+        FrostInvasion = -2,
 
         /// <summary>
         /// 
         /// </summary>
-        PirateInvasion=-3,
+        PirateInvasion = -3,
 
         /// <summary>
         /// 
         /// </summary>
-        PumpkinMoon=-4,
+        PumpkinMoon = -4,
 
         /// <summary>
         /// 
         /// </summary>
-        SnowMoon=-5,
+        SnowMoon = -5,
 
         /// <summary>
         /// 
         /// </summary>
-        Eclipse=-6,
+        Eclipse = -6,
 
         /// <summary>
         /// 
         /// </summary>
-        MartianMoon=-7,
+        MartianMoon = -7,
 
         /// <summary>
         /// 
         /// </summary>
-        ImpendingDoom=-8,
+        ImpendingDoom = -8,
 
         /// <summary>
         /// 
         /// </summary>
-        BloodMoon=-10,
+        BloodMoon = -10,
 
         /// <summary>
         /// 
         /// </summary>
-        CombatBookUsed=-11,
+        CombatBookUsed = -11,
 
         /// <summary>
         /// 
         /// </summary>
-        BoughtCat=-12,
+        BoughtCat = -12,
 
         /// <summary>
         /// 
         /// </summary>
-        BoughtDog=-13,
+        BoughtDog = -13,
 
         /// <summary>
         /// 
         /// </summary>
-        BoughtBunny=-14,
+        BoughtBunny = -14,
 
     }
 }
 
-//Json file changed at 2020/6/9 23:08:06
+//Json file changed at 2020/6/10 13:10:33

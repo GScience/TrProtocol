@@ -45,6 +45,8 @@ namespace TrProtocol
         /// </summary>
         public short frameY = default(short);
 
+
+
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write(type);

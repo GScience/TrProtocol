@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg54UpdateNPCBuff : INetObject
+    public class Msg54UpdateNPCBuff : INetMessage
     {
         public const int ID = 54;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -53,6 +56,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short time5 = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

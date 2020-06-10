@@ -2,13 +2,13 @@
   "desc": "",
   "args": [
     {
-      "type": "ReviveFromDeath"
+      "name": "ReviveFromDeath"
     },
     {
-      "type": "SpawningIntoWorld"
+      "name": "SpawningIntoWorld"
     },
     {
-      "type": "RecallFromItem"
+      "name": "RecallFromItem"
     }
   ]
 }

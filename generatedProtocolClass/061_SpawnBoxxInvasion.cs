@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg61SpawnBoxxInvasion : INetObject
+    public class Msg61SpawnBoxxInvasion : INetMessage
     {
         public const int ID = 61;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public SpawnBossInvasionType type = default(SpawnBossInvasionType);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

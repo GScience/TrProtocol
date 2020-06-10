@@ -2,22 +2,22 @@
   "desc": "",
   "args": [
     {
-      "type": "OpenDoor"
+      "name": "OpenDoor"
     },
     {
-      "type": "CloseDoor"
+      "name": "CloseDoor"
     },
     {
-      "type": "OpenTrapdoor"
+      "name": "OpenTrapdoor"
     },
     {
-      "type": "CloseTrapdoor"
+      "name": "CloseTrapdoor"
     },
     {
-      "type": "OpenTallGate"
+      "name": "OpenTallGate"
     },
     {
-      "type": "CloseTallGate"
+      "name": "CloseTallGate"
     }
   ]
 }

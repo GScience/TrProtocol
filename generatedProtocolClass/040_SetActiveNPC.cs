@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg40SetActiveNPC : INetObject
+    public class Msg40SetActiveNPC : INetMessage
     {
         public const int ID = 40;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short npcTalkTarget = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

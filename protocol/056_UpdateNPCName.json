@@ -19,6 +19,6 @@
       "type": "int"
     }
   ],
-  "serialization": "throw new NotImplementedException();",
-  "deserialization": "throw new NotImplementedException();"
+  "serialization": "writer.Write(npcId);\nif (Side == Side.Client)\n{\n}\nelse if (Side == Side.Server)\n{\n    writer.Write(name);\n    writer.Write(townNpcVariationIndex);\n}\nelse\n{\n    throw new Exception(\"Unknown side\");\n}",
+  "deserialization": "npcId = reader.ReadInt16();\nif (Side == Side.Client)\n{\n}\nelse if (Side == Side.Server)\n{\n    name = reader.ReadString();\n    townNpcVariationIndex = reader.ReadInt32();\n}\nelse\n{\n    throw new Exception(\"Unknown side\");\n}"
 }

@@ -23,6 +23,8 @@ namespace TrForward
             public short length;
             public byte type;
             public byte[] data;
+
+            public NetworkStream stream;
         }
 
         static void Main(string[] args)
@@ -55,7 +57,7 @@ namespace TrForward
 
             foreach (var type in types)
             {
-                if (type.GetInterface("INetObject") == null)
+                if (type.GetInterface("INetMessage") == null)
                     continue;
                 var idField = type.GetField("ID", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
                 if (idField == null)
@@ -77,11 +79,17 @@ namespace TrForward
         {
             if (messageTypes.TryGetValue(msg.type, out var msgType))
             {
-                var netMsg = (INetObject) Activator.CreateInstance(msgType);
+                var netMsg = (INetMessage) Activator.CreateInstance(msgType);
+
+                if (msg.stream == serverStream)
+                    netMsg.Side = Side.Server;
+                else if (msg.stream == playerStream)
+                    netMsg.Side = Side.Client;
+
                 using (var ms = new MemoryStream(msg.data))
                 {
                     netMsg.OnDeserialize(new BinaryReader(ms));
-                    Console.WriteLine($"Reveiced msg {msg.type}");
+                    Console.WriteLine($"Reveiced msg {msg.type} from " + netMsg.Side.ToString());
 
                     if (ms.Position != ms.Length)
                         throw new Exception("Part of the data is not read");
@@ -157,6 +165,7 @@ namespace TrForward
             msg.length = binaryStream.ReadInt16();
             msg.type = binaryStream.ReadByte();
             msg.data = binaryStream.ReadBytes(msg.length - 3);
+            msg.stream = stream;
 
             return msg;
         }

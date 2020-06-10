@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg34PlaceChest : INetObject
+    public class Msg34PlaceChest : INetMessage
     {
         public const int ID = 34;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short chestIdToDestroy = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

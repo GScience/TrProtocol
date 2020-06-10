@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg58PlayMusicItem : INetObject
+    public class Msg58PlayMusicItem : INetMessage
     {
         public const int ID = 58;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public float note = default(float);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

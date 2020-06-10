@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg32UpdateChestItem : INetObject
+    public class Msg32UpdateChestItem : INetMessage
     {
         public const int ID = 32;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short itemNetId = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

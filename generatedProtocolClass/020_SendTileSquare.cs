@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg20SendTileSquare : INetObject
+    public class Msg20SendTileSquare : INetMessage
     {
         public const int ID = 20;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public WorldTile tiles = new WorldTile();
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

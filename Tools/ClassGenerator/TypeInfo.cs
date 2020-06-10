@@ -15,5 +15,7 @@ namespace ClassGenerator
 
         public string serialization;
         public string deserialization;
+
+        public string[] functions;
     }
 }

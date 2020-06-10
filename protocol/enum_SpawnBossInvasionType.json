@@ -2,43 +2,43 @@
   "desc": "",
   "args": [
     {
-      "type": "GoblinInvasion = -1"
+      "name": "GoblinInvasion = -1"
     },
     {
-      "type": "FrostInvasion = -2"
+      "name": "FrostInvasion = -2"
     },
     {
-      "type": "PirateInvasion = -3"
+      "name": "PirateInvasion = -3"
     },
     {
-      "type": "PumpkinMoon = -4"
+      "name": "PumpkinMoon = -4"
     },
     {
-      "type": "SnowMoon = -5"
+      "name": "SnowMoon = -5"
     },
     {
-      "type": "Eclipse = -6"
+      "name": "Eclipse = -6"
     },
     {
-      "type": "MartianMoon = -7"
+      "name": "MartianMoon = -7"
     },
     {
-      "type": "ImpendingDoom = -8"
+      "name": "ImpendingDoom = -8"
     },
     {
-      "type": "BloodMoon = -10"
+      "name": "BloodMoon = -10"
     },
     {
-      "type": "CombatBookUsed = -11"
+      "name": "CombatBookUsed = -11"
     },
     {
-      "type": "BoughtCat = -12"
+      "name": "BoughtCat = -12"
     },
     {
-      "type": "BoughtDog = -13"
+      "name": "BoughtDog = -13"
     },
     {
-      "type": "BoughtBunny = -14"
+      "name": "BoughtBunny = -14"
     }
   ]
 }

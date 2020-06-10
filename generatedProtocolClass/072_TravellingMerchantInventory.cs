@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg72TravellingMerchantInventory : INetObject
+    public class Msg72TravellingMerchantInventory : INetMessage
     {
         public const int ID = 72;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Each short related to an item type NetID.
         /// </summary>
         public short[] items = new short[40];
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

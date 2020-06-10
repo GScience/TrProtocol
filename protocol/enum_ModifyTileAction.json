@@ -2,76 +2,76 @@
   "desc": "",
   "args": [
     {
-      "type": "KillTile"
+      "name": "KillTile"
     },
     {
-      "type": "PlaceTile"
+      "name": "PlaceTile"
     },
     {
-      "type": "KillWall"
+      "name": "KillWall"
     },
     {
-      "type": "PlaceWall"
+      "name": "PlaceWall"
     },
     {
-      "type": "KillTileNoItem"
+      "name": "KillTileNoItem"
     },
     {
-      "type": "PlaceWire"
+      "name": "PlaceWire"
     },
     {
-      "type": "KillWire"
+      "name": "KillWire"
     },
     {
-      "type": "PoundTile"
+      "name": "PoundTile"
     },
     {
-      "type": "PlaceActuator"
+      "name": "PlaceActuator"
     },
     {
-      "type": "KillActuator"
+      "name": "KillActuator"
     },
     {
-      "type": "PlaceWire2"
+      "name": "PlaceWire2"
     },
     {
-      "type": "KillWire2"
+      "name": "KillWire2"
     },
     {
-      "type": "PlaceWire3"
+      "name": "PlaceWire3"
     },
     {
-      "type": "KillWire3"
+      "name": "KillWire3"
     },
     {
-      "type": "SlopeTile"
+      "name": "SlopeTile"
     },
     {
-      "type": "FrameTrack"
+      "name": "FrameTrack"
     },
     {
-      "type": "PlaceWire4"
+      "name": "PlaceWire4"
     },
     {
-      "type": "KillWire4"
+      "name": "KillWire4"
     },
     {
-      "type": "PokeLogicGate"
+      "name": "PokeLogicGate"
     },
     {
-      "type": "Actuate"
+      "name": "Actuate"
     },
     {
-      "type": "KillTile2"
+      "name": "KillTile2"
     },
     {
-      "type": "ReplaceTile"
+      "name": "ReplaceTile"
     },
     {
-      "type": "ReplaceWall"
+      "name": "ReplaceWall"
     },
     {
-      "type": "SlopePoundTile"
+      "name": "SlopePoundTile"
     }
   ]
 }

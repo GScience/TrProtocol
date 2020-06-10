@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg0UNKNOWN : INetObject
+    public class Msg0UNKNOWN : INetMessage
     {
         public const int ID = 0;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

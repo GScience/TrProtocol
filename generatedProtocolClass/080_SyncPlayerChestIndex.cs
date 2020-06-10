@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg80SyncPlayerChestIndex : INetObject
+    public class Msg80SyncPlayerChestIndex : INetMessage
     {
         public const int ID = 80;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short chest = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

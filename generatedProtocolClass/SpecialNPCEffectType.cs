@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum SpecialNPCEffectType
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         SpawnSkeletron,
@@ -28,4 +28,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 22:58:00
+//Json file changed at 2020/6/10 13:10:40

@@ -2,22 +2,22 @@
   "desc": "",
   "args": [
     {
-      "type": "PlaceChest"
+      "name": "PlaceChest"
     },
     {
-      "type": "KillChest"
+      "name": "KillChest"
     },
     {
-      "type": "PlaceDresser"
+      "name": "PlaceDresser"
     },
     {
-      "type": "KillDresser"
+      "name": "KillDresser"
     },
     {
-      "type": "PlaceContainers2"
+      "name": "PlaceContainers2"
     },
     {
-      "type": "Killontainers2"
+      "name": "Killontainers2"
     }
   ]
 }

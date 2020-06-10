@@ -16,12 +16,12 @@
     {
       "name": "pulley",
       "desc": "",
-      "type": "byte"
+      "type": "BitsByte"
     },
     {
       "name": "misc",
       "desc": "",
-      "type": "byte"
+      "type": "BitsByte"
     },
     {
       "name": "sleepingInfo",
@@ -74,6 +74,6 @@
       "type": "float"
     }
   ],
-  "serialization": "writer.Write(playerId);\nwriter.Write(control);\nwriter.Write(pulley);\nwriter.Write(misc);\nwriter.Write(sleepingInfo);\nwriter.Write(selectedItem);\nwriter.Write(positionX);\nwriter.Write(positionY);\n\nif (((uint)pulley & (1 << 2)) > 0U)\n{\n    writer.Write(velocityX);\n    writer.Write(velocityY);\n}\n\nif (((uint)misc & (1 << 6)) > 0U)\n{\n    writer.Write(originalPositionX);\n    writer.Write(originalPositionY);\n    writer.Write(homePositionX);\n    writer.Write(homePositionY);\n}",
-  "deserialization": "playerId = reader.ReadByte();\ncontrol = reader.ReadByte();\npulley = reader.ReadByte();\nmisc = reader.ReadByte();\nsleepingInfo = reader.ReadByte();\nselectedItem = reader.ReadByte();\npositionX = reader.ReadSingle();\npositionY = reader.ReadSingle();\n\nif (((uint)pulley & (1 << 2)) > 0U)\n{\n    velocityX = reader.ReadSingle();\n    velocityY = reader.ReadSingle();\n}\n\nif (((uint)misc & (1 << 6)) > 0U)\n{\n    originalPositionX = reader.ReadSingle();\n    originalPositionY = reader.ReadSingle();\n    homePositionX = reader.ReadSingle();\n    homePositionY = reader.ReadSingle();\n}"
+  "serialization": "writer.Write(playerId);\nwriter.Write(control);\npulley.OnSerialize(writer);\nmisc.OnSerialize(writer);\nwriter.Write(sleepingInfo);\nwriter.Write(selectedItem);\nwriter.Write(positionX);\nwriter.Write(positionY);\n\nif (pulley[2])\n{\n    writer.Write(velocityX);\n    writer.Write(velocityY);\n}\n\nif (misc[6])\n{\n    writer.Write(originalPositionX);\n    writer.Write(originalPositionY);\n    writer.Write(homePositionX);\n    writer.Write(homePositionY);\n}",
+  "deserialization": "playerId = reader.ReadByte();\ncontrol = reader.ReadByte();\npulley.OnDeserialize(reader);\nmisc.OnDeserialize(reader);\nsleepingInfo = reader.ReadByte();\nselectedItem = reader.ReadByte();\npositionX = reader.ReadSingle();\npositionY = reader.ReadSingle();\n\nif (pulley[2])\n{\n    velocityX = reader.ReadSingle();\n    velocityY = reader.ReadSingle();\n}\n\nif (misc[6])\n{\n    originalPositionX = reader.ReadSingle();\n    originalPositionY = reader.ReadSingle();\n    homePositionX = reader.ReadSingle();\n    homePositionY = reader.ReadSingle();\n}"
 }

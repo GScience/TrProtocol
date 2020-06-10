@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg11SectionTileFrame : INetObject
+    public class Msg11SectionTileFrame : INetMessage
     {
         public const int ID = 11;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short endY = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

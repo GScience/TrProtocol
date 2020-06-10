@@ -21,6 +21,8 @@ namespace TrProtocol
         /// </summary>
         public byte b = default(byte);
 
+
+
         public void OnSerialize(BinaryWriter writer)
         {
             writer.Write(r);

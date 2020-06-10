@@ -31,8 +31,9 @@ $@"```csharp
             var argsCode = "";
             foreach (var arg in typeInfo.args)
             {
-                var anchorName = arg.type.Split('[')[0].Split(':')[0];
-                var argCode = string.Format(_argTemplate, arg.name, $"[{arg.type}](#{anchorName})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
+                var anchorName = arg.type?.Split('[')[0].Split(':')[0] ?? "";
+                var argName = arg.name.Split('=')[0];
+                var argCode = string.Format(_argTemplate, argName, $"[{arg.type}](#{anchorName})", string.IsNullOrEmpty(arg.desc) ? "-" : arg.desc);
 
                 if (!string.IsNullOrEmpty(argsCode))
                     argsCode += "\n";
@@ -49,6 +50,19 @@ $@"```csharp
             else
                 side = "##### Server  *  Client";
 
+            // functions
+            var customFunctions = "Methods: ";
+            if (typeInfo.functions != null)
+            {
+                foreach (var func in typeInfo.functions)
+                {
+                    if (!string.IsNullOrEmpty(customFunctions))
+                        customFunctions += "\n";
+
+                    customFunctions += GenerateCodeBox(func);
+                }
+            }
+
             if (!string.IsNullOrEmpty(typeInfo.serialization) && !string.IsNullOrEmpty(typeInfo.deserialization))
             {
                 var serializationCode = typeInfo.serialization;
@@ -58,10 +72,12 @@ $@"```csharp
                         _headTemplate,
                         name,
                         argsCode,
-                        "Serialization: \n" + GenerateCodeBox(serializationCode) + "Deserialization: \n" + GenerateCodeBox(deserializationCode) + "\n", 
+                        "Serialization: \n" + GenerateCodeBox(serializationCode) + "Deserialization: \n" + GenerateCodeBox(deserializationCode) + "\n",
+                        customFunctions,
                         side);
             }
-            return string.Format(_headTemplate, name, argsCode, "Using default serialization method", side);
+
+            return string.Format(_headTemplate, name, argsCode, "Using default serialization method", customFunctions, side);
         }
     }
 }

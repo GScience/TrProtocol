@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg60NPCHomeUpdate : INetObject
+    public class Msg60NPCHomeUpdate : INetMessage
     {
         public const int ID = 60;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte homeless = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

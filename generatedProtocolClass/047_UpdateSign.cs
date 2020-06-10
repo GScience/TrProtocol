@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg47UpdateSign : INetObject
+    public class Msg47UpdateSign : INetMessage
     {
         public const int ID = 47;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -33,6 +36,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte signFlags = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

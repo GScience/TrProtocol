@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg74AnglerQuest : INetObject
+    public class Msg74AnglerQuest : INetMessage
     {
         public const int ID = 74;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public bool completed = default(bool);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

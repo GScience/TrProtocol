@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg14PlayerActive : INetObject
+    public class Msg14PlayerActive : INetMessage
     {
         public const int ID = 14;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public bool active = default(bool);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

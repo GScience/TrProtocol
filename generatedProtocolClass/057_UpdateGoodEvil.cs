@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg57UpdateGoodEvil : INetObject
+    public class Msg57UpdateGoodEvil : INetMessage
     {
         public const int ID = 57;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte crimson = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

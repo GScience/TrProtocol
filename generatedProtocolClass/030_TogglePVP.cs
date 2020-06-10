@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg30TogglePVP : INetObject
+    public class Msg30TogglePVP : INetMessage
     {
         public const int ID = 30;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Player ID
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public bool pvpEnabled = default(bool);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum PlaceChestAction
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         PlaceChest,
@@ -38,4 +38,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 22:44:41
+//Json file changed at 2020/6/10 13:10:17

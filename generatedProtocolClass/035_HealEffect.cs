@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg35HealEffect : INetObject
+    public class Msg35HealEffect : INetMessage
     {
         public const int ID = 35;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short healAmount = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

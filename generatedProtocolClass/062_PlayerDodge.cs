@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg62PlayerDodge : INetObject
+    public class Msg62PlayerDodge : INetMessage
     {
         public const int ID = 62;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte flag = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg46RequestSign : INetObject
+    public class Msg46RequestSign : INetMessage
     {
         public const int ID = 46;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short y = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

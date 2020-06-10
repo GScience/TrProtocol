@@ -11,7 +11,7 @@ namespace DocGenerator
     class Program
     {
         public const string enumTemplate =
-@"| {1} | {2} |";
+@"| {0} | {2} |";
 
         public const string enumHeadTemplate =
 @"#### {0}
@@ -27,13 +27,15 @@ namespace DocGenerator
         public const string messageTemplate =
 @"#### {0}
 
-{3}
+{4}
 
 | arg | type | description |
 | ----- | ----- | ----- |
 {1}
 
-{2}";
+{2}
+
+{3}";
 
         public const string typeTemplate =
 @"#### {0}
@@ -42,7 +44,9 @@ namespace DocGenerator
 | ----- | ----- | ----- |
 {1}
 
-{2}";
+{2}
+
+{3}";
 
         static void Main(string[] args)
         {
@@ -110,8 +114,9 @@ namespace DocGenerator
                 docCode += "\n";
             }
 
-            docCode +=
-$@"----
+            docCode +=$@"
+
+----
 Generate at {DateTime.Now}";
             using (var fs = File.Open(output, FileMode.Create))
                 using (var writer = new StreamWriter(fs))

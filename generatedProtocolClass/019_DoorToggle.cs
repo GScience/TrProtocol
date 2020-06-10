@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg19DoorToggle : INetObject
+    public class Msg19DoorToggle : INetMessage
     {
         public const int ID = 19;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte direction = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

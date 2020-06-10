@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg29DestroyProjectile : INetObject
+    public class Msg29DestroyProjectile : INetMessage
     {
         public const int ID = 29;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// Player ID
         /// </summary>
         public byte owner = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

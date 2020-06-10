@@ -6,9 +6,14 @@ namespace TrProtocol
     /// <summary>
     /// Require world data
     /// </summary>
-    public class Msg6RequireWorldData : INetObject
+    public class Msg6RequireWorldData : INetMessage
     {
         public const int ID = 6;
+
+        public Side Side { get; set; }
+
+
+
 
 
         public void OnSerialize(BinaryWriter writer)

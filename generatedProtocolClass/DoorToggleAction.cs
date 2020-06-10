@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum DoorToggleAction
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         OpenDoor,
@@ -38,4 +38,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 22:13:23
+//Json file changed at 2020/6/10 13:05:25

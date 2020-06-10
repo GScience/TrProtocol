@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg55AddPlayerBuff : INetObject
+    public class Msg55AddPlayerBuff : INetMessage
     {
         public const int ID = 55;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public int time = default(int);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg79PlaceObject : INetObject
+    public class Msg79PlaceObject : INetMessage
     {
         public const int ID = 79;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -33,6 +36,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public bool direction = default(bool);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg31OpenChest : INetObject
+    public class Msg31OpenChest : INetMessage
     {
         public const int ID = 31;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short tileY = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

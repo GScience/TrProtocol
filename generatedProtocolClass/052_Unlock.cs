@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg52Unlock : INetObject
+    public class Msg52Unlock : INetMessage
     {
         public const int ID = 52;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short y = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

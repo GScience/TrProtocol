@@ -11,13 +11,17 @@ namespace TrProtocol
         /// <summary>
         /// 
         /// </summary>
-        public NetworkTextMode mode = default(NetworkTextMode);        /// <summary>
+        public NetworkTextMode mode = default(NetworkTextMode);
+        /// <summary>
         /// 
         /// </summary>
-        public string text = default(string);        /// <summary>
+        public string text = default(string);
+        /// <summary>
         /// 
         /// </summary>
         public NetworkText[] substitution = new NetworkText[0];
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

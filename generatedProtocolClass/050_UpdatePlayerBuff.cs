@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg50UpdatePlayerBuff : INetObject
+    public class Msg50UpdatePlayerBuff : INetMessage
     {
         public const int ID = 50;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public ushort[] buffType = new ushort[22];
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

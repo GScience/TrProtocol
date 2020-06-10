@@ -6,28 +6,38 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg65PlayerNPCTeleport : INetObject
+    public class Msg65PlayerNPCTeleport : INetMessage
     {
         public const int ID = 65;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
-        public BitsByte flags = new BitsByte();        /// <summary>
+        public BitsByte flags = new BitsByte();
+        /// <summary>
         /// 
         /// </summary>
-        public short targetId = default(short);        /// <summary>
+        public short targetId = default(short);
+        /// <summary>
         /// 
         /// </summary>
-        public float x = default(float);        /// <summary>
+        public float x = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public float y = default(float);        /// <summary>
+        public float y = default(float);
+        /// <summary>
         /// 
         /// </summary>
-        public byte style = default(byte);        /// <summary>
+        public byte style = default(byte);
+        /// <summary>
         /// 
         /// </summary>
         public int extraInfo = default(int);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

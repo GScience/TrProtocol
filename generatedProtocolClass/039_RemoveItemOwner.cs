@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg39RemoveItemOwner : INetObject
+    public class Msg39RemoveItemOwner : INetMessage
     {
         public const int ID = 39;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         public short itemIndex = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

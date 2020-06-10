@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg17ModifyTile : INetObject
+    public class Msg17ModifyTile : INetMessage
     {
         public const int ID = 17;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte flags2 = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

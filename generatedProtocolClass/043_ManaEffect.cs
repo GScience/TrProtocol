@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg43ManaEffect : INetObject
+    public class Msg43ManaEffect : INetMessage
     {
         public const int ID = 43;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public short manaAmount = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

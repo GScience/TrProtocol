@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg69GetChestName : INetObject
+    public class Msg69GetChestName : INetMessage
     {
         public const int ID = 69;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public string name = default(string);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg3SetUserSlot : INetObject
+    public class Msg3SetUserSlot : INetMessage
     {
         public const int ID = 3;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
         public byte playerId = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

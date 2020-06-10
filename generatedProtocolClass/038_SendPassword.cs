@@ -6,13 +6,18 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg38SendPassword : INetObject
+    public class Msg38SendPassword : INetMessage
     {
         public const int ID = 38;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         public string password = default(string);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

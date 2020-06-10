@@ -36,17 +36,17 @@
     {
       "name": "npcFlags1",
       "desc": "",
-      "type": "byte"
+      "type": "BitsByte"
     },
     {
       "name": "npcFlags2",
       "desc": "",
-      "type": "byte"
+      "type": "BitsByte"
     },
     {
       "name": "ai",
       "desc": "",
-      "type": "AI"
+      "type": "float[4]"
     },
     {
       "name": "npcNetID",
@@ -71,14 +71,19 @@
     {
       "name": "life",
       "desc": "",
-      "type": "Variable"
+      "type": "int"
     },
     {
       "name": "releaseOwner",
       "desc": "",
-      "type": "Byte"
+      "type": "byte"
+    },
+    {
+      "name": "catchable",
+      "desc": "",
+      "type": "bool"
     }
   ],
-  "serialization": "throw new NotImplementedException();",
-  "deserialization": "throw new NotImplementedException();"
+  "serialization": "writer.Write(npcId);\nwriter.Write(positionX);\nwriter.Write(positionY);\nwriter.Write(velocityX);\nwriter.Write(velocityY);\nwriter.Write(target);\nnpcFlags1.OnSerialize(writer);\nnpcFlags2.OnSerialize(writer);\nfor (var i = 0; i < 4; ++i)\n    if (npcFlags1[i + 2])\n        writer.Write(ai[i]);\nwriter.Write(npcNetID);\nif (npcFlags2[0])\n    writer.Write(playerCountForMultiplayerDifficultyOverride);\nif (npcFlags2[2])\n    writer.Write(strengthMultiplier);\nif (!npcFlags1[7])\n{\n    writer.Write(lifeBytes);\n    switch (lifeBytes)\n    {\n        case 2:\n            writer.Write((short)life);\n            break;\n        case 4:\n            writer.Write(life);\n            break;\n        default:\n            writer.Write((sbyte)life);\n            break;\n    }\n}\nif (catchable)\n    writer.Write(releaseOwner);",
+  "deserialization": "npcId = reader.ReadInt16();\npositionX = reader.ReadSingle();\npositionY = reader.ReadSingle();\nvelocityX = reader.ReadSingle();\nvelocityY = reader.ReadSingle();\ntarget = reader.ReadUInt16();\nnpcFlags1.OnDeserialize(reader);\nnpcFlags2.OnDeserialize(reader);\nfor (var i = 0; i < 4; ++i)\n    if (npcFlags1[i + 2])\n        ai[i] = reader.ReadSingle();\nnpcNetID = reader.ReadInt16();\nif (npcFlags2[0])\n    playerCountForMultiplayerDifficultyOverride = reader.ReadByte();\nif (npcFlags2[2])\n    strengthMultiplier = reader.ReadSingle();\nif (!npcFlags1[7])\n{\n    lifeBytes = reader.ReadByte();\n    switch (lifeBytes)\n    {\n        case 2:\n            life = reader.ReadInt16();\n            break;\n        case 4:\n            life = reader.ReadInt32();\n            break;\n        default:\n            life = reader.ReadSByte();\n            break;\n    }\n}\ntry\n{\n    releaseOwner = reader.ReadByte();\n    catchable = true;\n}\ncatch (EndOfStreamException)\n{\n    catchable = false;\n}"
 }

@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg45PlayerTeam : INetObject
+    public class Msg45PlayerTeam : INetMessage
     {
         public const int ID = 45;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte team = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

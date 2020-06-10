@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg51SpecialNPCEffect : INetObject
+    public class Msg51SpecialNPCEffect : INetMessage
     {
         public const int ID = 51;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +20,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public SpecialNPCEffectType type = default(SpecialNPCEffectType);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

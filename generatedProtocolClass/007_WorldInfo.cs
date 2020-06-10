@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// World info
     /// </summary>
-    public class Msg7WorldInfo : INetObject
+    public class Msg7WorldInfo : INetMessage
     {
         public const int ID = 7;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Time
         /// </summary>
@@ -233,6 +236,8 @@ namespace TrProtocol
         /// Sandstorm Intended Severity
         /// </summary>
         public float sandstormIntendedSeverity = default(float);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

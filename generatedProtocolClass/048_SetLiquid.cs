@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg48SetLiquid : INetObject
+    public class Msg48SetLiquid : INetMessage
     {
         public const int ID = 48;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte liquidType = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

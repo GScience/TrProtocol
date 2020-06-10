@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg9Status : INetObject
+    public class Msg9Status : INetMessage
     {
         public const int ID = 9;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Status only increases
         /// </summary>
@@ -21,6 +24,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public byte statusTextFlags = default(byte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

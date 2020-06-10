@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg78ReportInvasionProgress : INetObject
+    public class Msg78ReportInvasionProgress : INetMessage
     {
         public const int ID = 78;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +28,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public sbyte wave = default(sbyte);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

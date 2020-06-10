@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg12SpawnPlayer : INetObject
+    public class Msg12SpawnPlayer : INetMessage
     {
         public const int ID = 12;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public PlayerSpawnContext playerSpawnContext = default(PlayerSpawnContext);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

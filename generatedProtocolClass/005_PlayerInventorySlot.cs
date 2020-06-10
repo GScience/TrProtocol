@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg5PlayerInventorySlot : INetObject
+    public class Msg5PlayerInventorySlot : INetMessage
     {
         public const int ID = 5;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -29,6 +32,8 @@ namespace TrProtocol
         /// Net ID
         /// </summary>
         public short netId = default(short);
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {

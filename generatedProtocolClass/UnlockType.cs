@@ -5,7 +5,7 @@ namespace TrProtocol
     /// </summary>
     public enum UnlockType
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         ChestUnlock,
@@ -18,4 +18,4 @@ namespace TrProtocol
     }
 }
 
-//Json file changed at 2020/6/9 22:59:13
+//Json file changed at 2020/6/10 13:10:47

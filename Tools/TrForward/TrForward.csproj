@@ -282,9 +282,6 @@
     <Compile Include="..\..\generatedProtocolClass\090_UpdateItemDrop2.cs">
       <Link>TrProtocol\090_UpdateItemDrop2.cs</Link>
     </Compile>
-    <Compile Include="..\..\generatedProtocolClass\AI.cs">
-      <Link>TrProtocol\AI.cs</Link>
-    </Compile>
     <Compile Include="..\..\generatedProtocolClass\BitsByte.cs">
       <Link>TrProtocol\BitsByte.cs</Link>
     </Compile>
@@ -300,8 +297,11 @@
     <Compile Include="..\..\generatedProtocolClass\Entity.cs">
       <Link>TrProtocol\Entity.cs</Link>
     </Compile>
-    <Compile Include="..\..\generatedProtocolClass\INetObjectCode.cs">
-      <Link>TrProtocol\INetObjectCode.cs</Link>
+    <Compile Include="..\..\generatedProtocolClass\INetMessage.cs">
+      <Link>TrProtocol\INetMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\generatedProtocolClass\INetObject.cs">
+      <Link>TrProtocol\INetObject.cs</Link>
     </Compile>
     <Compile Include="..\..\generatedProtocolClass\ModifyTileAction.cs">
       <Link>TrProtocol\ModifyTileAction.cs</Link>
@@ -332,9 +332,6 @@
     </Compile>
     <Compile Include="..\..\generatedProtocolClass\UnlockType.cs">
       <Link>TrProtocol\UnlockType.cs</Link>
-    </Compile>
-    <Compile Include="..\..\generatedProtocolClass\Variable.cs">
-      <Link>TrProtocol\Variable.cs</Link>
     </Compile>
     <Compile Include="..\..\generatedProtocolClass\WorldTile.cs">
       <Link>TrProtocol\WorldTile.cs</Link>

@@ -6,9 +6,12 @@ namespace TrProtocol
     /// <summary>
     /// 
     /// </summary>
-    public class Msg4PlayerInfo : INetObject
+    public class Msg4PlayerInfo : INetMessage
     {
         public const int ID = 4;
+
+        public Side Side { get; set; }
+
         /// <summary>
         /// Remote player ID
         /// </summary>
@@ -77,6 +80,8 @@ namespace TrProtocol
         /// 
         /// </summary>
         public BitsByte torchFlags = new BitsByte();
+
+
 
         public void OnSerialize(BinaryWriter writer)
         {
