@@ -92,8 +92,18 @@ namespace TrForward
                     try
                     {
                         netMsg.OnDeserialize(new BinaryReader(ms));
-                        if (msg.type == Msg82NetModule.ID)
-                            subId = (netMsg as Msg82NetModule).moduleId;
+                        if (netMsg is Msg82NetModule netModule)
+                        {
+                            subId = netModule.moduleId;
+
+                            if (subId == 1)
+                            {
+                                if (netMsg.Side == Side.Client)
+                                    Console.WriteLine($"<{netMsg.Side}> : {(string)netModule.moduleValue["text"]}");
+                                else if (netMsg.Side == Side.Server)
+                                    Console.WriteLine($"<{netMsg.Side}> : {((NetworkText)netModule.moduleValue["text"]).text}");
+                            }
+                        }
                     }
                     catch (NotImplementedException e)
                     {
