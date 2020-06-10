@@ -279,6 +279,9 @@
     <Compile Include="..\..\generatedProtocolClass\080_SyncPlayerChestIndex.cs">
       <Link>TrProtocol\080_SyncPlayerChestIndex.cs</Link>
     </Compile>
+    <Compile Include="..\..\generatedProtocolClass\082_NetModule.cs">
+      <Link>TrProtocol\082_NetModule.cs</Link>
+    </Compile>
     <Compile Include="..\..\generatedProtocolClass\090_UpdateItemDrop2.cs">
       <Link>TrProtocol\090_UpdateItemDrop2.cs</Link>
     </Compile>

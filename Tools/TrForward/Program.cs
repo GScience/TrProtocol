@@ -88,11 +88,25 @@ namespace TrForward
 
                 using (var ms = new MemoryStream(msg.data))
                 {
-                    netMsg.OnDeserialize(new BinaryReader(ms));
+                    var subId = -1;
+                    try
+                    {
+                        netMsg.OnDeserialize(new BinaryReader(ms));
+                        if (msg.type == Msg82NetModule.ID)
+                            subId = (netMsg as Msg82NetModule).moduleId;
+                    }
+                    catch (NotImplementedException e)
+                    {
+                        throw e;
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception($"(SubPackage:{subId}) Failed to deserialize message\n" + e.ToString());
+                    }
                     Console.WriteLine($"Reveiced msg {msg.type} from " + netMsg.Side.ToString());
 
                     if (ms.Position != ms.Length)
-                        throw new Exception("Part of the data is not read");
+                        throw new Exception($"(SubPackage:{subId}) Part of the data is not read");
 
                     // check whether the serialized result is same
                     var data = new byte[msg.data.Length];
@@ -101,7 +115,7 @@ namespace TrForward
 
                     for (var i = 0; i < data.Length; ++i)
                         if (data[i] != msg.data[i])
-                            throw new Exception("Serialized result is not same with the original one");
+                            throw new Exception($"(SubPackage:{subId}) Serialized result is not same with the original one");
                 }
             }
         }

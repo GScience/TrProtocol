@@ -12,6 +12,7 @@ namespace ClassGenerator
         public const string msgClassTemplate =
 @"using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace TrProtocol
 {{
@@ -43,6 +44,7 @@ namespace TrProtocol
         public const string typeClassTemplate =
 @"using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace TrProtocol
 {{

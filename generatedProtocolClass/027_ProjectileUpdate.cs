@@ -1,5 +1,6 @@
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace TrProtocol
 {
@@ -73,14 +74,52 @@ namespace TrProtocol
 
         public void OnSerialize(BinaryWriter writer)
         {
-            throw new NotImplementedException();
+            writer.Write(projectileId);
+            writer.Write(positionX);
+            writer.Write(positionY);
+            writer.Write(velocityX);
+            writer.Write(velocityY);
+            writer.Write(owner);
+            writer.Write(type);
+            projFlags.OnSerialize(writer);
+            if (projFlags[0])
+                writer.Write(AI0);
+            if (projFlags[1])
+                writer.Write(AI1);
+            if (projFlags[4])
+                writer.Write(Damage);
+            if (projFlags[5])
+                writer.Write(knockback);
+            if (projFlags[6])
+                writer.Write(originalDamage);
+            if (projFlags[7])
+                writer.Write(projUUID);
         }
 
         public void OnDeserialize(BinaryReader reader)
         {
-            throw new NotImplementedException();
+            projectileId = reader.ReadInt16();
+            positionX = reader.ReadSingle();
+            positionY = reader.ReadSingle();
+            velocityX = reader.ReadSingle();
+            velocityY = reader.ReadSingle();
+            owner = reader.ReadByte();
+            type = reader.ReadInt16();
+            projFlags.OnDeserialize(reader);
+            if (projFlags[0])
+                AI0 = reader.ReadSingle();
+            if (projFlags[1])
+                AI1 = reader.ReadSingle();
+            if (projFlags[4])
+                Damage = reader.ReadInt16();
+            if (projFlags[5])
+                knockback = reader.ReadSingle();
+            if (projFlags[6])
+                originalDamage = reader.ReadInt16();
+            if (projFlags[7])
+                projUUID = reader.ReadInt16();
         }
     }
 }
 
-//Json file changed at 2020/6/9 22:34:34
+//Json file changed at 2020/6/10 14:45:27

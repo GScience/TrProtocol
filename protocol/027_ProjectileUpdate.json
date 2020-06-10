@@ -74,6 +74,6 @@
       "type": "short"
     }
   ],
-  "serialization": "throw new NotImplementedException();",
-  "deserialization": "throw new NotImplementedException();"
+  "serialization": "writer.Write(projectileId);\nwriter.Write(positionX);\nwriter.Write(positionY);\nwriter.Write(velocityX);\nwriter.Write(velocityY);\nwriter.Write(owner);\nwriter.Write(type);\nprojFlags.OnSerialize(writer);\nif (projFlags[0])\n    writer.Write(AI0);\nif (projFlags[1])\n    writer.Write(AI1);\nif (projFlags[4])\n    writer.Write(Damage);\nif (projFlags[5])\n    writer.Write(knockback);\nif (projFlags[6])\n    writer.Write(originalDamage);\nif (projFlags[7])\n    writer.Write(projUUID);",
+  "deserialization": "projectileId = reader.ReadInt16();\npositionX = reader.ReadSingle();\npositionY = reader.ReadSingle();\nvelocityX = reader.ReadSingle();\nvelocityY = reader.ReadSingle();\nowner = reader.ReadByte();\ntype = reader.ReadInt16();\nprojFlags.OnDeserialize(reader);\nif (projFlags[0])\n    AI0 = reader.ReadSingle();\nif (projFlags[1])\n    AI1 = reader.ReadSingle();\nif (projFlags[4])\n    Damage = reader.ReadInt16();\nif (projFlags[5])\n    knockback = reader.ReadSingle();\nif (projFlags[6])\n    originalDamage = reader.ReadInt16();\nif (projFlags[7])\n    projUUID = reader.ReadInt16();"
 }
